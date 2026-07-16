@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 250" role="img" aria-label="Retail Industry Workforce Analytics">
+  <defs>
+    <clipPath id="card"><rect x="1" y="1" width="1198" height="248" rx="14"/></clipPath>
+  </defs>
+  <rect x="1" y="1" width="1198" height="248" rx="14" fill="#161b22" stroke="rgba(255,255,255,0.12)"/>
+  <g clip-path="url(#card)">
+    <path d="M0,214 C150,206 260,190 420,196 C580,202 700,178 860,184 C1000,189 1100,176 1200,180 L1200,250 L0,250 Z"
+          fill="#3987e5" opacity="0.10"/>
+    <path d="M0,214 C150,206 260,190 420,196 C580,202 700,178 860,184 C1000,189 1100,176 1200,180"
+          fill="none" stroke="#3987e5" stroke-width="2" opacity="0.35"/>
+  </g>
+  <g>
+    <rect x="74"  y="132" width="26" height="46"  rx="5" fill="#cde2fb"/>
+    <rect x="110" y="102" width="26" height="76"  rx="5" fill="#6da7ec"/>
+    <rect x="146" y="66"  width="26" height="112" rx="5" fill="#2a78d6"/>
+    <path d="M74,84 C104,88 128,102 150,124 C164,138 170,148 176,160"
+          fill="none" stroke="#0ca30c" stroke-width="3.5" stroke-linecap="round"/>
+    <circle cx="74" cy="84" r="6" fill="#0ca30c" stroke="#161b22" stroke-width="2.5"/>
+  </g>
+  <text x="222" y="112" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
+        font-size="46" font-weight="650" fill="#ffffff" letter-spacing="-0.5">Retail Workforce Analytics</text>
+  <text x="224" y="152" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
+        font-size="19" fill="#c3c2b7">Eleven decision systems for hourly workforces, built on a simulator that knows the truth</text>
+  <text x="224" y="186" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
+        font-size="15" fill="#898781">turnover &#183; headcount &#183; scheduling &#183; call-outs &#183; hiring funnel &#183; bench strength &#183; pay experiments &#183; voice of the frontline</text>
+</svg>
