@@ -18,6 +18,9 @@ from .drivers import (
     stabilize_schedules,
     close_hours_gap,
 )
+from .cost_model import CostModel, targeting_roi, turnover_cost_summary
+from .explain import reason_codes, shap_importance, shap_matrix
+from .survival_nn import SurvivalNN
 
 __version__ = "0.1.0"
 
@@ -44,4 +47,11 @@ __all__ = [
     "raise_pay_floor",
     "stabilize_schedules",
     "close_hours_gap",
+    "CostModel",
+    "targeting_roi",
+    "turnover_cost_summary",
+    "reason_codes",
+    "shap_importance",
+    "shap_matrix",
+    "SurvivalNN",
 ]

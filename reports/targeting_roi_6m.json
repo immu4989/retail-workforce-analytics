@@ -1,0 +1,24 @@
+{
+  "horizon_months": 6,
+  "top_frac": 0.1,
+  "program_effectiveness": 0.2,
+  "program_cost_per_person": 300.0,
+  "targeted": {
+    "treated": 2146,
+    "reached_leavers": 1125,
+    "exits_avoided": 225.0,
+    "gross_savings": 1130500.0,
+    "program_cost": 643800.0,
+    "net_savings": 486700.0
+  },
+  "untargeted_everyone": {
+    "treated": 21460,
+    "reached_leavers": 6209,
+    "exits_avoided": 1241.8,
+    "gross_savings": 6662500.0,
+    "program_cost": 6438000.0,
+    "net_savings": 224500.0
+  },
+  "roi_multiple_targeted": 1.76,
+  "roi_multiple_untargeted": 1.03
+}

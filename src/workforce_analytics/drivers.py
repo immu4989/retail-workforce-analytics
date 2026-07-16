@@ -74,7 +74,7 @@ def driver_importance(
     X, y = rows[model.features], rows[f"label_{horizon}m"]
 
     result = permutation_importance(
-        model.models_[horizon], X, y, scoring="roc_auc",
+        model.calibrated_estimator(horizon), X, y, scoring="roc_auc",
         n_repeats=n_repeats, random_state=random_state)
 
     out = pd.DataFrame({
@@ -108,10 +108,11 @@ def partial_dependence_curve(
     grid = np.quantile(rows[feature].dropna(), np.linspace(0.02, 0.98, grid_size))
     grid = np.unique(np.round(grid, 3))
     curve = []
+    est = model.calibrated_estimator(horizon)
     X = rows[model.features].copy()
     for v in grid:
         X[feature] = v
-        curve.append(float(model.models_[horizon].predict_proba(X)[:, 1].mean()))
+        curve.append(float(est.predict_proba(X)[:, 1].mean()))
     return pd.DataFrame({feature: grid, f"mean_p_{horizon}m": curve})
 
 
@@ -123,10 +124,13 @@ class InterventionSimulator:
         rows = snapshots[snapshots["role"].isin(model.roles)]
         self.baseline = rows.reset_index(drop=True)
 
-    def run(self, transform, name: str, horizon: int | None = None) -> pd.DataFrame:
+    def run(self, transform, name: str, horizon: int | None = None,
+            cost_model=None) -> pd.DataFrame:
         """Apply ``transform(df) -> df`` to a copy of the snapshot and rescore.
 
         Returns per-district expected exits before/after and the reduction.
+        Pass a :class:`~workforce_analytics.cost_model.CostModel` to add a
+        ``dollars_saved`` column (exits avoided x replacement cost per role).
         """
         horizon = horizon or self.model.horizons[0]
         col = f"p_{horizon}m"
@@ -136,23 +140,27 @@ class InterventionSimulator:
 
         cmp = before[["district_id"]].copy()
         cmp["p_before"], cmp["p_after"] = before[col], after[col]
-        out = cmp.groupby("district_id", observed=True).agg(
-            n_employees=("p_before", "size"),
-            expected_exits_before=("p_before", "sum"),
-            expected_exits_after=("p_after", "sum"),
-        ).reset_index()
-        total = pd.DataFrame([{
-            "district_id": "ALL",
-            "n_employees": len(cmp),
-            "expected_exits_before": cmp["p_before"].sum(),
-            "expected_exits_after": cmp["p_after"].sum(),
-        }])
+        if cost_model is not None:
+            cmp["dollars"] = ((cmp["p_before"] - cmp["p_after"])
+                              * cost_model.cost_of(before["role"]))
+        agg = {
+            "n_employees": ("p_before", "size"),
+            "expected_exits_before": ("p_before", "sum"),
+            "expected_exits_after": ("p_after", "sum"),
+        }
+        if cost_model is not None:
+            agg["dollars_saved"] = ("dollars", "sum")
+        out = cmp.groupby("district_id", observed=True).agg(**agg).reset_index()
+        total = out.drop(columns="district_id").sum().to_frame().T
+        total.insert(0, "district_id", "ALL")
         out = pd.concat([out, total], ignore_index=True)
         out["exits_avoided"] = out["expected_exits_before"] - out["expected_exits_after"]
         out["reduction_pct"] = (out["exits_avoided"] / out["expected_exits_before"] * 100)
-        for c in ["expected_exits_before", "expected_exits_after", "exits_avoided",
-                  "reduction_pct"]:
-            out[c] = out[c].round(1)
+        for c in out.columns.difference(["district_id", "intervention", "n_employees"]):
+            out[c] = out[c].astype(float).round(1)
+        out["n_employees"] = out["n_employees"].astype(int)
+        if cost_model is not None:
+            out["dollars_saved"] = out["dollars_saved"].round(0)
         out.insert(0, "intervention", name)
         out.insert(1, "horizon_months", horizon)
         return out

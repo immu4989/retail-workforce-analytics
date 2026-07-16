@@ -65,11 +65,17 @@ employees across 12 districts, 60 months):
 
 | Population | Horizon | Base rate | ROC-AUC | Ceiling | Calibration (ECE) | Lift @ top decile |
 |------------|---------|-----------|---------|---------|-------------------|-------------------|
-| Hourly | 3 mo | 0.17 | 0.668 | 0.668 | 0.010 | 2.1x |
-| Hourly | 6 mo | 0.29 | 0.655 | 0.663 | 0.023 | 1.8x |
-| Hourly | 12 mo | 0.45 | 0.652 | 0.666 | 0.045 | 1.6x |
-| Salaried | 6 mo | 0.11 | 0.643 | 0.691 | 0.033 | 1.8x |
-| Salaried | 12 mo | 0.21 | 0.655 | 0.664 | 0.061 | 2.7x |
+| Hourly | 3 mo | 0.17 | 0.667 | 0.668 | 0.009 | 2.1x |
+| Hourly | 6 mo | 0.29 | 0.658 | 0.663 | 0.022 | 1.8x |
+| Hourly | 12 mo | 0.45 | 0.653 | 0.666 | 0.045 | 1.6x |
+| Salaried | 6 mo | 0.11 | 0.632 | 0.691 | 0.038 | 1.9x |
+| Salaried | 12 mo | 0.21 | 0.655 | 0.664 | 0.065 | 2.4x |
+
+A deep discrete-time survival network (`SurvivalNN`, PyTorch, optional)
+matches the gradient-boosted models on ranking from a single trained
+artifact and produces full 12-month retention curves per employee; the GBM
+stays the recommended default. The comparison table ships in
+`reports/nn_vs_gbm_hourly.csv` so nobody has to rediscover it.
 
 The simulated workforce reproduces realistic dynamics, including the new-hire
 washout that dominates hourly retail attrition:
@@ -85,6 +91,31 @@ And the driver analysis separates levers operations can pull from context that
 is only useful for targeting:
 
 ![Turnover drivers](docs/figures/drivers.png)
+
+SHAP decomposes individual predictions (with a test asserting the
+attributions are additive and directionally correct against the ground
+truth), and per-employee reason codes phrase them for HR partners:
+
+![SHAP beeswarm](docs/figures/shap_beeswarm.png)
+
+## What it is worth in dollars
+
+The cost model (`CostModel`, all parameters explicit and adjustable) prices
+the outputs. On the simulated company, roughly 2,900 employees:
+
+| Question | Answer |
+|----------|--------|
+| Baseline attrition burn | $12.9M per year (2,126 exits, mostly baristas) |
+| Best single lever found | Scheduling people their desired hours: $240k/yr |
+| Targeted retention program (top decile) | 1.76x ROI vs 1.03x untargeted, ~$487k net per cycle |
+| Headcount plan accuracy | 699 predicted vs 710 actual exits over 6 months |
+
+![Intervention value](docs/figures/intervention_value.png)
+
+These are exact computations under stated assumptions on synthetic data, not
+promises. The per-use-case writeups show the arithmetic and how it scales
+with workforce size; swap in your own replacement costs before quoting any of
+it internally.
 
 ## Quick tour
 
@@ -110,27 +141,46 @@ print(evaluate_with_ceiling(model, test))
 preds = model.predict(snaps[snaps["month"] == 48])
 plan = build_hiring_plan(preds, result.stores, horizon=6)
 
-# 5. "What would stabilising schedules buy us?"
+# 5. "What would stabilising schedules buy us, in dollars?"
+from workforce_analytics import CostModel
 sim = InterventionSimulator(model, snaps[snaps["month"] == 48])
-print(sim.run(stabilize_schedules(), "cap schedule volatility", horizon=6))
+print(sim.run(stabilize_schedules(), "cap schedule volatility", horizon=6,
+              cost_model=CostModel()))
+
+# 6. "Why is this employee at risk?" (needs the shap extra)
+from workforce_analytics import reason_codes
+print(reason_codes(model, snaps[snaps["month"] == 48], horizon=6).head())
+
+# 7. Full retention curves from one deep survival model (needs the torch extra)
+from workforce_analytics import SurvivalNN
+from workforce_analytics.config import HOURLY_ROLES
+snaps1 = build_snapshots(result.person_months, horizons=(1,))
+nn = SurvivalNN(roles=list(HOURLY_ROLES)).fit(snaps1[snaps1["month"] <= 44])
+curves = nn.survival_curves(snaps[snaps["month"] == 48], horizon=12)
 ```
 
 ## Repository layout
 
 ```
 src/workforce_analytics/
-    config.py      simulation settings + the ground-truth hazard coefficients
-    generator.py   month-by-month workforce simulator (hiring, promotion, attrition)
-    snapshots.py   point-in-time feature/label construction, out-of-time splits
-    turnover.py    calibrated multi-horizon gradient-boosted turnover models
-    evaluation.py  discrimination, calibration and lift metrics
-    oracle.py      the oracle ceiling: how well could a perfect model do?
-    headcount.py   hiring plans from expected attrition + growth + vacancies
-    drivers.py     permutation importance, PDPs, what-if intervention simulator
-examples/          end-to-end pipeline producing reports/ and figures
-tests/             23 tests: realism, leakage, calibration, accounting
-docs/              methodology and per-use-case writeups
+    config.py       simulation settings + the ground-truth hazard coefficients
+    generator.py    month-by-month workforce simulator (hiring, promotion, attrition)
+    snapshots.py    point-in-time feature/label construction, out-of-time splits
+    turnover.py     calibrated multi-horizon gradient-boosted turnover models
+    survival_nn.py  deep discrete-time survival model (optional, torch)
+    evaluation.py   discrimination, calibration and lift metrics
+    oracle.py       the oracle ceiling: how well could a perfect model do?
+    headcount.py    hiring plans from expected attrition + growth + vacancies
+    drivers.py      permutation importance, PDPs, what-if intervention simulator
+    explain.py      SHAP: global importance + per-employee reason codes (optional, shap)
+    cost_model.py   dollars: baseline burn, intervention value, targeting ROI
+examples/           end-to-end pipeline producing reports/ and figures
+tests/              30 tests: realism, leakage, calibration, SHAP additivity, accounting
+docs/               per-use-case writeups + guide to adapting real HRIS data
 ```
+
+Optional extras: `pip install -e ".[explain]"` for SHAP, `".[deep]"` for the
+survival network, `".[dev]"` for tests and plotting.
 
 ## Using this with real data
 

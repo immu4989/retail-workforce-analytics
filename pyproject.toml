@@ -35,7 +35,9 @@ dependencies = [
 
 [project.optional-dependencies]
 plots = ["matplotlib>=3.7"]
-dev = ["pytest>=7.0", "matplotlib>=3.7"]
+explain = ["shap>=0.45"]
+deep = ["torch>=2.0"]
+dev = ["pytest>=7.0", "matplotlib>=3.7", "shap>=0.45"]
 
 [project.urls]
 Homepage = "https://github.com/immu4989/retail-workforce-analytics"

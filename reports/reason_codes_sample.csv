@@ -1,0 +1,201 @@
+employee_id,store_id,district_id,role,p_6m,reason_1,reason_2,reason_3
+10927,S079,D06,barista,0.9,1 months of tenure,14 km commute,scheduled 14 hours/week under desired
+10882,S039,D03,barista,0.8333333333333334,1 months of tenure,paid 10% below local market,age 16-20
+11188,S125,D09,barista,0.7045454545454546,0 months of tenure,performance rating 1/5,scheduled 10 hours/week under desired
+9837,S133,D10,barista,0.7045454545454546,20 km commute,7 months of tenure,age 16-20
+10023,S144,D11,barista,0.7045454545454546,scheduled 13 hours/week under desired,6 months of tenure,age 16-20
+10071,S037,D03,barista,0.7045454545454546,5 months of tenure,scheduled 17 hours/week under desired,age 16-20
+10465,S028,D02,barista,0.7045454545454546,3 months of tenure,24 km commute,paid 4% below local market
+10307,S075,D06,barista,0.7045454545454546,scheduled 12 hours/week under desired,4 months of tenure,age 16-20
+10720,S070,D05,barista,0.7045454545454546,2 months of tenure,performance rating 1/5,18 km commute
+10864,S024,D02,barista,0.6952380952380952,1 months of tenure,performance rating 2/5,11 km commute
+10855,S017,D01,barista,0.6952380952380952,1 months of tenure,performance rating 2/5,age 16-20
+10601,S122,D09,barista,0.6952380952380952,3 months of tenure,paid 11% below local market,age 16-20
+10860,S020,D01,barista,0.6952380952380952,1 months of tenure,scheduled 14 hours/week under desired,age 16-20
+10492,S047,D04,barista,0.6952380952380952,3 months of tenure,15 km commute,paid 7% below local market
+10455,S024,D02,barista,0.6952380952380952,3 months of tenure,scheduled 11 hours/week under desired,age 16-20
+11116,S070,D05,barista,0.6952380952380952,0 months of tenure,performance rating 2/5,scheduled 31 hours/week
+10879,S036,D03,barista,0.6952380952380952,1 months of tenure,performance rating 1/5,age 16-20
+11198,S133,D10,barista,0.6952380952380952,0 months of tenure,performance rating 1/5,age 16-20
+10990,S120,D09,barista,0.6952380952380952,1 months of tenure,paid 10% below local market,performance rating 2/5
+11084,S047,D04,barista,0.6952380952380952,0 months of tenure,13 km commute,weekly schedule swings +/-5.6 hours
+9688,S014,D01,barista,0.6952380952380952,7 months of tenure,20 km commute,scheduled 12 hours/week under desired
+11095,S055,D04,barista,0.6952380952380952,0 months of tenure,scheduled 12 hours/week under desired,age 16-20
+11111,S067,D05,barista,0.6952380952380952,0 months of tenure,performance rating 1/5,age 16-20
+11172,S114,D09,barista,0.6952380952380952,0 months of tenure,performance rating 1/5,scheduled 9 hours/week under desired
+10588,S113,D09,barista,0.6900165902477357,3 months of tenure,22 km commute,performance rating 2/5
+10705,S059,D05,barista,0.6098901098901099,2 months of tenure,performance rating 2/5,paid 8% below local market
+10725,S071,D06,barista,0.6098901098901099,2 months of tenure,performance rating 2/5,age 16-20
+11004,S125,D09,barista,0.6098901098901099,1 months of tenure,performance rating 1/5,weekly schedule swings +/-4.9 hours
+11005,S125,D09,barista,0.6098901098901099,1 months of tenure,performance rating 1/5,weekly schedule swings +/-3.1 hours
+11008,S125,D09,barista,0.6098901098901099,1 months of tenure,performance rating 2/5,scheduled 10 hours/week under desired
+11013,S125,D09,barista,0.6098901098901099,1 months of tenure,14 km commute,store manager changed 1 months ago
+11022,S131,D10,barista,0.6098901098901099,1 months of tenure,performance rating 2/5,age 16-20
+11023,S131,D10,barista,0.6098901098901099,1 months of tenure,performance rating 2/5,works a second job
+11036,S139,D11,barista,0.6098901098901099,1 months of tenure,scheduled 14 hours/week under desired,performance rating 2/5
+11043,S001,D00,barista,0.6098901098901099,0 months of tenure,performance rating 2/5,9 km commute
+11058,S020,D01,barista,0.6098901098901099,0 months of tenure,14 km commute,paid 5% below local market
+9480,S009,D00,barista,0.6098901098901099,18 km commute,performance rating 2/5,8 months of tenure
+9677,S001,D00,barista,0.6098901098901099,performance rating 1/5,7 months of tenure,age 16-20
+11104,S063,D05,barista,0.6098901098901099,0 months of tenure,age 16-20,weekly schedule swings +/-10.4 hours
+11108,S066,D05,barista,0.6098901098901099,0 months of tenure,performance rating 2/5,scheduled 12 hours/week under desired
+9575,S092,D07,barista,0.6098901098901099,scheduled 14 hours/week under desired,8 months of tenure,paid 7% below local market
+11112,S069,D05,barista,0.6098901098901099,0 months of tenure,performance rating 2/5,scheduled 30 hours/week
+10994,S124,D09,barista,0.6098901098901099,1 months of tenure,11 km commute,weekly schedule swings +/-5.6 hours
+10182,S121,D09,barista,0.6098901098901099,5 months of tenure,scheduled 11 hours/week under desired,age 16-20
+10967,S099,D08,barista,0.6098901098901099,1 months of tenure,34 km commute,store manager changed 3 months ago
+10566,S094,D07,barista,0.6098901098901099,3 months of tenure,performance rating 1/5,13 km commute
+10740,S085,D06,barista,0.6098901098901099,2 months of tenure,performance rating 1/5,1 km commute
+10748,S092,D07,barista,0.6098901098901099,2 months of tenure,performance rating 2/5,paid 6% below local market
+10757,S098,D08,barista,0.6098901098901099,2 months of tenure,age 16-20,scheduled 33 hours/week
+11139,S089,D07,barista,0.6098901098901099,0 months of tenure,scheduled 10 hours/week under desired,age 16-20
+10665,S031,D02,barista,0.6098901098901099,2 months of tenure,performance rating 1/5,age 16-20
+10639,S146,D11,barista,0.6098901098901099,3 months of tenure,scheduled 10 hours/week under desired,age 16-20
+10439,S015,D01,barista,0.6098901098901099,24 km commute,3 months of tenure,paid 8% below local market
+10960,S094,D07,barista,0.6098901098901099,1 months of tenure,performance rating 1/5,age 16-20
+10427,S008,D00,barista,0.6098901098901099,3 months of tenure,24 km commute,performance rating 2/5
+10422,S004,D00,barista,0.6098901098901099,3 months of tenure,scheduled 34 hours/week,works a second job
+10925,S077,D06,barista,0.6098901098901099,1 months of tenure,12 km commute,paid 10% below local market
+8716,S091,D07,barista,0.6098901098901099,performance rating 1/5,age 16-20,scheduled 12 hours/week under desired
+10361,S101,D08,barista,0.6098901098901099,20 km commute,4 months of tenure,paid 6% below local market
+10935,S086,D06,barista,0.6098901098901099,1 months of tenure,12 km commute,scheduled 30 hours/week
+10811,S133,D10,barista,0.6098901098901099,2 months of tenure,paid 7% below local market,age 16-20
+11210,S147,D11,barista,0.6098901098901099,0 months of tenure,performance rating 2/5,9 km commute
+11207,S145,D11,barista,0.6098901098901099,0 months of tenure,scheduled 13 hours/week under desired,age 16-20
+11191,S125,D09,barista,0.6098901098901099,0 months of tenure,performance rating 2/5,store manager changed 1 months ago
+11176,S118,D09,barista,0.6098901098901099,0 months of tenure,performance rating 2/5,scheduled 7 hours/week under desired
+11203,S139,D11,barista,0.6098901098901099,0 months of tenure,performance rating 2/5,paid 8% below local market
+11185,S124,D09,barista,0.6098901098901099,0 months of tenure,performance rating 2/5,age 16-20
+10771,S109,D08,barista,0.5974025974025974,2 months of tenure,performance rating 1/5,works a second job
+9648,S134,D10,barista,0.5974025974025974,scheduled 14 hours/week under desired,8 months of tenure,age 16-20
+10445,S018,D01,barista,0.5974025974025974,3 months of tenure,14 km commute,scheduled 12 hours/week under desired
+11092,S053,D04,barista,0.5974025974025974,0 months of tenure,performance rating 1/5,10 km commute
+9664,S140,D11,barista,0.5974025974025974,performance rating 2/5,paid 9% below local market,age 16-20
+10433,S009,D00,barista,0.5974025974025974,3 months of tenure,13 km commute,paid 6% below local market
+11148,S097,D08,barista,0.5974025974025974,0 months of tenure,18 km commute,works a second job
+10963,S098,D08,barista,0.5974025974025974,1 months of tenure,performance rating 1/5,age 16-20
+9877,S022,D01,barista,0.5974025974025974,6 months of tenure,age 16-20,scheduled 10 hours/week under desired
+10980,S106,D08,barista,0.5974025974025974,1 months of tenure,performance rating 2/5,10 km commute
+9843,S135,D10,barista,0.5974025974025974,7 months of tenure,works a second job,local unemployment 3.0%
+10573,S098,D08,barista,0.5974025974025974,3 months of tenure,performance rating 2/5,13 km commute
+10417,S000,D00,barista,0.5974025974025974,3 months of tenure,performance rating 2/5,10 km commute
+10649,S007,D00,barista,0.5974025974025974,2 months of tenure,performance rating 1/5,age 16-20
+11016,S127,D10,barista,0.5974025974025974,1 months of tenure,performance rating 2/5,weekly schedule swings +/-5.5 hours
+10727,S072,D06,barista,0.5974025974025974,2 months of tenure,performance rating 2/5,weekly schedule swings +/-3.0 hours
+10353,S094,D07,barista,0.5974025974025974,4 months of tenure,scheduled 11 hours/week under desired,age 16-20
+11149,S098,D08,barista,0.5974025974025974,0 months of tenure,paid 12% below local market,store staffed at 78% of target
+11046,S003,D00,barista,0.5974025974025974,0 months of tenure,performance rating 1/5,age 16-20
+11026,S132,D10,barista,0.5974025974025974,1 months of tenure,performance rating 2/5,age 16-20
+10809,S131,D10,barista,0.5974025974025974,2 months of tenure,performance rating 2/5,11 km commute
+10870,S030,D02,barista,0.5974025974025974,1 months of tenure,performance rating 2/5,store manager changed 1 months ago
+10045,S015,D01,barista,0.5974025974025974,5 months of tenure,age 16-20,performance rating 2/5
+10539,S078,D06,barista,0.5974025974025974,3 months of tenure,paid 9% below local market,age 16-20
+11127,S083,D06,barista,0.5974025974025974,0 months of tenure,paid 8% below local market,age 16-20
+9298,S122,D09,barista,0.5974025974025974,performance rating 2/5,paid 9% below local market,scheduled 11 hours/week under desired
+11117,S072,D06,barista,0.5974025974025974,0 months of tenure,16 km commute,scheduled 9 hours/week under desired
+10843,S008,D00,barista,0.5951426208858362,1 months of tenure,performance rating 2/5,paid 6% below local market
+10989,S118,D09,barista,0.5555555555555556,1 months of tenure,performance rating 2/5,10 km commute
+10992,S122,D09,barista,0.5555555555555556,1 months of tenure,performance rating 2/5,scheduled 13 hours/week under desired
+11102,S062,D05,barista,0.5555555555555556,0 months of tenure,age 16-20,scheduled 11 hours/week under desired
+10587,S113,D09,barista,0.5555555555555556,3 months of tenure,performance rating 2/5,scheduled 8 hours/week under desired
+10790,S122,D09,barista,0.5555555555555556,2 months of tenure,scheduled 10 hours/week under desired,weekly schedule swings +/-3.1 hours
+10747,S092,D07,barista,0.5217391304347826,2 months of tenure,paid 7% below local market,weekly schedule swings +/-5.7 hours
+11001,S125,D09,shift_supervisor,0.5217391304347826,1 months of tenure,performance rating 1/5,paid 8% below local market
+10895,S049,D04,barista,0.5217391304347826,1 months of tenure,13 km commute,age 16-20
+10279,S055,D04,barista,0.5217391304347826,4 months of tenure,performance rating 2/5,age 16-20
+10749,S092,D07,barista,0.5217391304347826,2 months of tenure,performance rating 2/5,10 km commute
+11012,S125,D09,barista,0.5217391304347826,1 months of tenure,10 km commute,store manager changed 1 months ago
+9230,S077,D06,barista,0.5217391304347826,performance rating 2/5,age 16-20,scheduled 9 hours/week under desired
+10993,S124,D09,barista,0.5217391304347826,1 months of tenure,performance rating 2/5,age 16-20
+9793,S108,D08,barista,0.5217391304347826,7 months of tenure,scheduled 31 hours/week,age 16-20
+10814,S134,D10,barista,0.5217391304347826,2 months of tenure,performance rating 2/5,paid 9% below local market
+10301,S067,D05,barista,0.5217391304347826,works a second job,4 months of tenure,local unemployment 3.0%
+11171,S114,D09,barista,0.5217391304347826,0 months of tenure,scheduled 9 hours/week under desired,barista
+10518,S063,D05,barista,0.5217391304347826,3 months of tenure,performance rating 2/5,local unemployment 3.0%
+10726,S071,D06,barista,0.5217391304347826,2 months of tenure,age 16-20,scheduled 10 hours/week under desired
+11200,S135,D10,barista,0.5217391304347826,0 months of tenure,performance rating 1/5,local unemployment 3.0%
+10862,S022,D01,barista,0.5217391304347826,1 months of tenure,performance rating 2/5,works a second job
+10088,S050,D04,barista,0.5217391304347826,5 months of tenure,age 16-20,performance rating 2/5
+10067,S035,D03,barista,0.5217391304347826,5 months of tenure,11 km commute,paid 8% below local market
+10721,S070,D05,barista,0.5217391304347826,2 months of tenure,performance rating 2/5,scheduled 7 hours/week under desired
+11030,S135,D10,barista,0.5217391304347826,1 months of tenure,performance rating 1/5,age 16-20
+10717,S069,D05,barista,0.5217391304347826,2 months of tenure,performance rating 1/5,15 km commute
+8504,S052,D04,barista,0.5217391304347826,performance rating 1/5,age 16-20,scheduled 13 hours/week under desired
+10730,S074,D06,barista,0.5217391304347826,2 months of tenure,17 km commute,paid 6% below local market
+11202,S139,D11,barista,0.5217391304347826,0 months of tenure,performance rating 2/5,age 16-20
+10985,S112,D09,barista,0.5217391304347826,1 months of tenure,13 km commute,weekly schedule swings +/-5.7 hours
+9990,S112,D09,barista,0.5217391304347826,performance rating 1/5,6 months of tenure,paid 9% below local market
+10944,S087,D06,barista,0.5217391304347826,1 months of tenure,performance rating 2/5,store manager changed 1 months ago
+9926,S055,D04,barista,0.5217391304347826,6 months of tenure,scheduled 13 hours/week under desired,age 16-20
+10818,S135,D10,barista,0.5217391304347826,2 months of tenure,performance rating 2/5,9 km commute
+10793,S123,D09,barista,0.5217391304347826,2 months of tenure,performance rating 2/5,scheduled 7 hours/week under desired
+10823,S137,D11,barista,0.5217391304347826,2 months of tenure,performance rating 1/5,barista
+10929,S081,D06,barista,0.5217391304347826,1 months of tenure,performance rating 2/5,age 16-20
+10954,S090,D07,barista,0.5217391304347826,1 months of tenure,paid 8% below local market,age 16-20
+10829,S143,D11,barista,0.5217391304347826,2 months of tenure,performance rating 2/5,10 km commute
+11161,S107,D08,barista,0.5217391304347826,0 months of tenure,performance rating 2/5,weekly schedule swings +/-4.9 hours
+10231,S018,D01,barista,0.5217391304347826,4 months of tenure,12 km commute,weekly schedule swings +/-6.0 hours
+11166,S111,D09,barista,0.5217391304347826,0 months of tenure,paid 11% below local market,10 km commute
+10139,S086,D06,barista,0.5217391304347826,5 months of tenure,9 km commute,weekly schedule swings +/-5.0 hours
+9978,S101,D08,shift_supervisor,0.5217391304347826,6 months of tenure,performance rating 2/5,paid 13% below local market
+10919,S069,D05,barista,0.5217391304347826,1 months of tenure,age 16-20,paid 5% below local market
+10912,S063,D05,barista,0.5217391304347826,1 months of tenure,performance rating 2/5,scheduled 31 hours/week
+9870,S014,D01,barista,0.5217391304347826,6 months of tenure,scheduled 31 hours/week,store manager changed 4 months ago
+10968,S099,D08,barista,0.5217391304347826,1 months of tenure,performance rating 2/5,scheduled 31 hours/week
+10772,S109,D08,barista,0.5217391304347826,2 months of tenure,performance rating 2/5,10 km commute
+10907,S060,D05,barista,0.5217391304347826,1 months of tenure,performance rating 1/5,works a second job
+10972,S101,D08,barista,0.5217391304347826,1 months of tenure,scheduled 10 hours/week under desired,age 16-20
+10973,S102,D08,barista,0.5217391304347826,1 months of tenure,performance rating 2/5,age 16-20
+9858,S146,D11,barista,0.5217391304347826,7 months of tenure,performance rating 2/5,paid 9% below local market
+10764,S105,D08,barista,0.5217391304347826,2 months of tenure,performance rating 2/5,age 16-20
+10906,S057,D05,barista,0.5217391304347826,1 months of tenure,performance rating 1/5,works a second job
+10942,S087,D06,barista,0.5217391304347826,1 months of tenure,performance rating 1/5,store manager changed 1 months ago
+9768,S077,D06,barista,0.5217391304347826,performance rating 2/5,7 months of tenure,scheduled 6 hours/week under desired
+11150,S099,D08,barista,0.5217391304347826,0 months of tenure,works a second job,age 16-20
+11088,S050,D04,barista,0.5217391304347826,0 months of tenure,performance rating 2/5,age 16-20
+11080,S039,D03,barista,0.5217391304347826,0 months of tenure,works a second job,paid 6% below local market
+10371,S105,D08,barista,0.5217391304347826,4 months of tenure,13 km commute,scheduled 9 hours/week under desired
+10571,S096,D08,barista,0.5217391304347826,3 months of tenure,12 km commute,scheduled 9 hours/week under desired
+10372,S107,D08,barista,0.5217391304347826,4 months of tenure,10 km commute,weekly schedule swings +/-5.4 hours
+11064,S023,D02,barista,0.5217391304347826,0 months of tenure,performance rating 2/5,scheduled 13 hours/week under desired
+8953,S008,D00,barista,0.5217391304347826,17 km commute,performance rating 2/5,scheduled 12 hours/week under desired
+10642,S000,D00,barista,0.5217391304347826,2 months of tenure,scheduled 10 hours/week under desired,age 16-20
+11106,S066,D05,barista,0.5217391304347826,0 months of tenure,performance rating 2/5,local unemployment 3.0%
+10469,S030,D02,barista,0.5217391304347826,3 months of tenure,11 km commute,store manager changed 1 months ago
+8984,S034,D03,barista,0.5217391304347826,performance rating 2/5,age 16-20,scheduled 10 hours/week under desired
+10593,S117,D09,barista,0.5217391304347826,3 months of tenure,performance rating 2/5,paid 6% below local market
+11145,S097,D08,barista,0.5217391304347826,0 months of tenure,14 km commute,paid 4% below local market
+10626,S135,D10,barista,0.5217391304347826,3 months of tenure,performance rating 2/5,weekly schedule swings +/-5.8 hours
+11091,S052,D04,barista,0.5217391304347826,0 months of tenure,performance rating 1/5,barista
+11077,S037,D03,barista,0.5217391304347826,0 months of tenure,age 16-20,9 km commute
+10613,S127,D10,barista,0.5217391304347826,3 months of tenure,age 16-20,paid 8% below local market
+11078,S038,D03,barista,0.5217391304347826,0 months of tenure,performance rating 2/5,works a second job
+11194,S129,D10,barista,0.5217391304347826,0 months of tenure,performance rating 2/5,scheduled 30 hours/week
+10470,S030,D02,barista,0.5217391304347826,3 months of tenure,performance rating 2/5,9 km commute
+10622,S132,D10,barista,0.5217391304347826,3 months of tenure,performance rating 2/5,local unemployment 3.0%
+9590,S106,D08,barista,0.5217391304347826,performance rating 1/5,8 months of tenure,scheduled 7 hours/week under desired
+9006,S051,D04,barista,0.5217391304347826,performance rating 1/5,age 16-20,paid 6% below local market
+9729,S039,D03,barista,0.5217391304347826,14 km commute,7 months of tenure,performance rating 2/5
+10689,S045,D04,barista,0.5217391304347826,2 months of tenure,paid 10% below local market,age 16-20
+10496,S049,D04,barista,0.5217391304347826,3 months of tenure,performance rating 1/5,8 km commute
+10501,S050,D04,barista,0.5217391304347826,3 months of tenure,performance rating 2/5,age 16-20
+11184,S124,D09,barista,0.5217391304347826,0 months of tenure,works a second job,scheduled 9 hours/week under desired
+10680,S039,D03,barista,0.5217391304347826,2 months of tenure,performance rating 2/5,scheduled 11 hours/week under desired
+10505,S054,D04,barista,0.5217391304347826,3 months of tenure,performance rating 2/5,paid 8% below local market
+10360,S100,D08,barista,0.5217391304347826,4 months of tenure,scheduled 11 hours/week under desired,age 16-20
+11136,S087,D06,barista,0.5217391304347826,0 months of tenure,store manager changed 1 months ago,weekly schedule swings +/-3.6 hours
+11125,S082,D06,barista,0.5217391304347826,0 months of tenure,performance rating 1/5,age 16-20
+10487,S044,D04,barista,0.5217391304347826,3 months of tenure,age 16-20,weekly schedule swings +/-6.0 hours
+10486,S044,D04,barista,0.5217391304347826,3 months of tenure,paid 8% below local market,9 km commute
+10554,S085,D06,barista,0.5217391304347826,3 months of tenure,performance rating 2/5,age 16-20
+11113,S069,D05,barista,0.5217391304347826,0 months of tenure,performance rating 2/5,age 16-20
+11131,S085,D06,barista,0.5217391304347826,0 months of tenure,scheduled 13 hours/week under desired,barista
+10608,S124,D09,barista,0.4599999999999999,3 months of tenure,performance rating 2/5,paid 10% below local market
+11141,S090,D07,barista,0.4599999999999999,0 months of tenure,scheduled 11 hours/week under desired,age 16-20
+10854,S016,D01,barista,0.4599999999999999,1 months of tenure,scheduled 14 hours/week under desired,10 km commute
+10100,S063,D05,barista,0.4599999999999999,5 months of tenure,works a second job,weekly schedule swings +/-5.7 hours
+10947,S087,D06,barista,0.4599999999999999,1 months of tenure,scheduled 13 hours/week under desired,store manager changed 1 months ago
+11199,S135,D10,barista,0.4599999999999999,0 months of tenure,scheduled 12 hours/week under desired,weekly schedule swings +/-5.7 hours
+10557,S086,D06,barista,0.4599999999999999,3 months of tenure,age 16-20,weekly schedule swings +/-5.6 hours
+10711,S062,D05,barista,0.4599999999999999,2 months of tenure,performance rating 2/5,12 km commute
+10752,S093,D07,barista,0.4599999999999999,2 months of tenure,paid 9% below local market,weekly schedule swings +/-5.1 hours
