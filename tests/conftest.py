@@ -18,6 +18,11 @@ CFG = SimulationConfig(n_districts=6, n_months=48, seed=11)
 
 
 @pytest.fixture(scope="session")
+def cfg():
+    return CFG
+
+
+@pytest.fixture(scope="session")
 def sim():
     return generate(CFG)
 

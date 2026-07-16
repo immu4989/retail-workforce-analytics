@@ -58,11 +58,10 @@ def test_pay_and_features_in_sane_ranges(sim):
     assert pm["performance_rating"].between(1, 5).all()
 
 
-def test_reproducible_with_seed(sim):
+def test_reproducible_with_seed(sim, cfg):
     from workforce_analytics import generate
-    from tests.conftest import CFG
 
-    again = generate(CFG)
+    again = generate(cfg)
     assert len(again.person_months) == len(sim.person_months)
     np.testing.assert_allclose(
         again.person_months["pay_ratio"].to_numpy(),
