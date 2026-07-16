@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 640" role="img" aria-label="Retail Industry Workforce Analytics">
+  <rect width="1280" height="640" fill="#fcfcfb"/>
+  <path d="M0,540 C200,528 340,502 520,510 C700,518 840,486 1020,494 C1140,499 1220,488 1280,492 L1280,640 L0,640 Z"
+        fill="#2a78d6" opacity="0.08"/>
+  <path d="M0,540 C200,528 340,502 520,510 C700,518 840,486 1020,494 C1140,499 1220,488 1280,492"
+        fill="none" stroke="#2a78d6" stroke-width="3" opacity="0.30"/>
+  <g>
+    <rect x="120" y="266" width="44" height="78"  rx="8" fill="#86b6ef"/>
+    <rect x="180" y="216" width="44" height="128" rx="8" fill="#3987e5"/>
+    <rect x="240" y="156" width="44" height="188" rx="8" fill="#184f95"/>
+    <path d="M120,186 C170,192 210,216 248,252 C272,276 282,292 292,312"
+          fill="none" stroke="#008300" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="120" cy="186" r="10" fill="#008300" stroke="#fcfcfb" stroke-width="4"/>
+  </g>
+  <text x="360" y="240" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
+        font-size="64" font-weight="650" fill="#0b0b0b" letter-spacing="-1">Retail Workforce</text>
+  <text x="360" y="312" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
+        font-size="64" font-weight="650" fill="#0b0b0b" letter-spacing="-1">Analytics</text>
+  <text x="362" y="366" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
+        font-size="26" fill="#52514e">Eleven decision systems for hourly workforces,</text>
+  <text x="362" y="402" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
+        font-size="26" fill="#52514e">built on a simulator that knows the truth</text>
+  <g font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="21">
+    <text x="362" y="468" fill="#2a78d6" font-weight="600">11 use cases</text>
+    <text x="524" y="468" fill="#898781">&#183;</text>
+    <text x="546" y="468" fill="#2a78d6" font-weight="600">50 tests in CI</text>
+    <text x="722" y="468" fill="#898781">&#183;</text>
+    <text x="744" y="468" fill="#008300" font-weight="600">0 rows of real HR data</text>
+  </g>
+  <text x="362" y="560" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif"
+        font-size="19" fill="#898781">github.com/immu4989/retail-workforce-analytics</text>
+</svg>
