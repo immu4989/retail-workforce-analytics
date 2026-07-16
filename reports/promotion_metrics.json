@@ -1,0 +1,7 @@
+{
+  "n": 21460,
+  "promotion_base_rate": 0.035,
+  "roc_auc": 0.845,
+  "pr_auc": 0.138,
+  "precision_top_5pct": 0.167
+}

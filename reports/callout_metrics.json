@@ -1,0 +1,9 @@
+{
+  "n": 33384,
+  "mean_callouts": 0.726,
+  "poisson_deviance_model": 1.0946,
+  "poisson_deviance_baseline": 1.1544,
+  "top_decile_share_of_callouts": 0.171,
+  "predicted_total": 23293.4,
+  "actual_total": 24233
+}

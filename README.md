@@ -14,10 +14,11 @@ a minute.
 
 ```
 pip install -e ".[dev]"
-python examples/run_pipeline.py
+python examples/run_pipeline.py      # use cases 1-4: turnover, headcount, drivers
+python examples/run_operations.py    # use cases 5-9: scheduling, call-outs, funnel, bench
 ```
 
-## The four use cases
+## The nine use cases
 
 | # | Use case | Module | Detailed writeup |
 |---|----------|--------|------------------|
@@ -25,6 +26,16 @@ python examples/run_pipeline.py
 | 2 | Salaried turnover risk (store managers, assistants) at 6/12 months | `TurnoverModel("salaried")` | [docs/use_cases/02_salaried_turnover.md](docs/use_cases/02_salaried_turnover.md) |
 | 3 | Headcount forecasting: "hire N baristas in district D in the next 3 months" | `build_hiring_plan` | [docs/use_cases/03_headcount_forecasting.md](docs/use_cases/03_headcount_forecasting.md) |
 | 4 | Turnover drivers and what-if interventions | `driver_importance`, `InterventionSimulator` | [docs/use_cases/04_turnover_drivers.md](docs/use_cases/04_turnover_drivers.md) |
+| 5 | Demand-driven labor forecasting + fair-workweek scheduling | `LaborDemandForecaster`, `build_week_schedule` | [docs/use_cases/05_demand_scheduling.md](docs/use_cases/05_demand_scheduling.md) |
+| 6 | Call-out (unplanned absence) prediction + reserve staffing | `CalloutModel`, `reserve_staffing_plan` | [docs/use_cases/06_absenteeism.md](docs/use_cases/06_absenteeism.md) |
+| 7 | Hiring funnel analytics + requisition timing | `simulate_funnel`, `req_timing` | [docs/use_cases/07_hiring_funnel.md](docs/use_cases/07_hiring_funnel.md) |
+| 8 | Promotion readiness + leadership bench strength | `PromotionModel`, `bench_strength` | [docs/use_cases/08_internal_mobility.md](docs/use_cases/08_internal_mobility.md) |
+| 9 | Turnover contagion, and why the naive estimate misleads | `contagion_analysis` | [docs/use_cases/09_turnover_contagion.md](docs/use_cases/09_turnover_contagion.md) |
+
+Use cases 1-4 are the people-side stack (`examples/run_pipeline.py`);
+5-9 are the operations stack (`examples/run_operations.py`). What large
+operators run beyond these, and what each would need to be added with the
+same rigour, is in [docs/ROADMAP.md](docs/ROADMAP.md).
 
 ## What makes this different from the usual attrition demo
 
@@ -106,9 +117,11 @@ the outputs. On the simulated company, roughly 2,900 employees:
 | Question | Answer |
 |----------|--------|
 | Baseline attrition burn | $12.9M per year (2,126 exits, mostly baristas) |
-| Best single lever found | Scheduling people their desired hours: $240k/yr |
+| Best single retention lever found | Scheduling people their desired hours: $240k/yr |
 | Targeted retention program (top decile) | 1.76x ROI vs 1.03x untargeted, ~$487k net per cycle |
 | Headcount plan accuracy | 699 predicted vs 710 actual exits over 6 months |
+| Demand-driven scheduling vs staff-to-average | $328 per store-week, $2.4M/yr chain-wide |
+| Hourly demand forecast | WAPE 17.8% vs 24.1% seasonal-naive, at 94% week-over-week schedule stability |
 
 ![Intervention value](docs/figures/intervention_value.png)
 
@@ -116,6 +129,22 @@ These are exact computations under stated assumptions on synthetic data, not
 promises. The per-use-case writeups show the arithmetic and how it scales
 with workforce size; swap in your own replacement costs before quoting any of
 it internally.
+
+## The operations stack
+
+Use case 5 forecasts every store's hourly demand (12 held-out weeks shown
+company-wide in the metrics; one store-week below) and builds legal,
+fair-workweek-stable schedules against it:
+
+![Demand forecast](docs/figures/demand_forecast.png)
+
+Use case 9 uses the known ground truth for a methods lesson real data can't
+deliver: the simulator plants **no** turnover contagion, yet the raw
+peer-exit gradient shows the +19% "contagion effect" the literature reports.
+Stratify on store conditions and it vanishes — the naive estimate was
+confounding, and the testbed proves it:
+
+![Contagion](docs/figures/contagion.png)
 
 ## Quick tour
 
@@ -174,9 +203,14 @@ src/workforce_analytics/
     drivers.py      permutation importance, PDPs, what-if intervention simulator
     explain.py      SHAP: global importance + per-employee reason codes (optional, shap)
     cost_model.py   dollars: baseline burn, intervention value, targeting ROI
-examples/           end-to-end pipeline producing reports/ and figures
-tests/              30 tests: realism, leakage, calibration, SHAP additivity, accounting
-docs/               per-use-case writeups + guide to adapting real HRIS data
+    demand.py       hourly traffic simulator, labor forecaster, fair-workweek scheduler
+    absence.py      call-out simulator, Poisson prediction, reserve staffing
+    funnel.py       hiring funnel simulator, stage conversion, requisition timing
+    mobility.py     promotion events, readiness model, bench strength
+    contagion.py    peer-exit exposure analysis, raw vs stratified
+examples/           two pipelines (people + operations) producing reports/ and figures
+tests/              41 tests: realism, leakage, calibration, SHAP additivity, accounting
+docs/               per-use-case writeups, roadmap, guide to adapting real HRIS data
 ```
 
 Optional extras: `pip install -e ".[explain]"` for SHAP, `".[deep]"` for the

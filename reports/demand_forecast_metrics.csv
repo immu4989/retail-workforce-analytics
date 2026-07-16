@@ -1,0 +1,3 @@
+forecaster,wape,bias_pct,n_store_hours
+model,0.1781,-0.4258,175140
+seasonal_naive,0.2406,-0.4516,175140

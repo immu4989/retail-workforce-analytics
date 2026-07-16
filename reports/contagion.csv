@@ -1,0 +1,5 @@
+peer_exit_rate_3m_bucket,n_person_months_raw,exit_rate_raw,relative_risk,n_person_months_adj,exit_rate_adj,adjusted_relative_risk
+<5%,10415,0.0679,1.0,10389,0.0676,1.0
+5-15%,40499,0.0619,0.91,40379,0.0617,0.92
+15-30%,71224,0.0686,1.01,68289,0.0682,0.92
+30%+,27351,0.0806,1.19,21862,0.0776,0.93

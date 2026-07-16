@@ -91,7 +91,7 @@ class WorkforceSimulator:
         cfg, rng = self.cfg, self.rng
         n = cfg.n_districts
         growth = np.zeros(n, dtype=bool)
-        growth[rng.choice(n, size=cfg.n_growth_districts, replace=False)] = True
+        growth[rng.choice(n, size=min(cfg.n_growth_districts, n), replace=False)] = True
         return pd.DataFrame({
             "district_id": [f"D{i:02d}" for i in range(n)],
             "cost_index": np.clip(rng.normal(1.0, 0.08, n), 0.8, 1.25),
@@ -107,7 +107,7 @@ class WorkforceSimulator:
         for _, d in districts.iterrows():
             n_stores = rng.integers(cfg.stores_per_district_min, cfg.stores_per_district_max + 1)
             open_months = [0] * n_stores
-            if d["is_growth"]:
+            if d["is_growth"] and cfg.n_months > 24:
                 extra = cfg.new_stores_per_growth_district
                 open_months += sorted(rng.integers(12, cfg.n_months - 9, extra).tolist())
                 n_stores += extra

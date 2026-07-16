@@ -1,0 +1,21 @@
+{
+  "example_store_week": {
+    "required_person_hours": 234,
+    "scheduled_person_hours": 257,
+    "understaffed_hours": 0,
+    "overstaffed_hours": 23,
+    "coverage_pct": 100.0,
+    "clopening_violations": 0,
+    "overwork_violations": 0,
+    "employees_used": 21
+  },
+  "schedule_stability_with_stickiness": 0.943,
+  "staffing_cost_per_store_week_forecast": 942.0,
+  "staffing_cost_per_store_week_flat": 1270.0,
+  "savings_per_store_week": 328.0,
+  "chain_annual_savings": 2371126.0,
+  "assumptions": {
+    "loaded_wage": 21.0,
+    "understaffed_cost_per_hour": 35.0
+  }
+}
