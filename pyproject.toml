@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "workforce-analytics"
+version = "0.1.0"
+description = "Turnover prediction, headcount forecasting, and attrition-driver analysis for hourly retail workforces"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Imran Ahamed", email = "immu4989@gmail.com" }]
+keywords = [
+    "people-analytics",
+    "employee-turnover",
+    "attrition",
+    "workforce-planning",
+    "survival-analysis",
+    "hr-analytics",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "scikit-learn>=1.6",
+]
+
+[project.optional-dependencies]
+plots = ["matplotlib>=3.7"]
+dev = ["pytest>=7.0", "matplotlib>=3.7"]
+
+[project.urls]
+Homepage = "https://github.com/immu4989/retail-workforce-analytics"
+Issues = "https://github.com/immu4989/retail-workforce-analytics/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

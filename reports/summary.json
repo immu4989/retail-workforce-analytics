@@ -1,0 +1,12 @@
+{
+  "n_employees": 13285,
+  "n_person_months": 164130,
+  "annualized_turnover": {
+    "barista": 0.631,
+    "shift_supervisor": 0.326,
+    "store_manager": 0.192,
+    "assistant_store_manager": 0.298
+  },
+  "headcount_total_predicted_exits_6m": 690.6,
+  "headcount_total_actual_exits_6m": 710
+}
