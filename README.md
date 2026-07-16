@@ -19,6 +19,11 @@
   <a href="docs/ROADMAP.md">Roadmap</a>
 </p>
 
+> 🤖 **Agentic-AI versions of workforce problems** — LLM agents with verified evals,
+> cost-per-run in dollars, and observed failure modes — are being built in
+> [awesome-agentic-usecases](https://github.com/immu4989/awesome-agentic-usecases),
+> where this repo's simulator seeds the retail-workforce vertical.
+
 I spent years building these systems for one of the largest retail
 workforces in the world. Real HR data can never be shared, so this repo does
 the next best thing: it ships a workforce simulator with a **documented
