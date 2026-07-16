@@ -83,7 +83,7 @@ washout that dominates hourly retail attrition:
 ![Monthly exit rate by tenure](docs/figures/tenure_hazard.png)
 
 Summed probabilities track realised exits closely enough to hire against
-(691 predicted vs 710 actual over one 6-month window, company-wide):
+(699 predicted vs 710 actual over one 6-month window, company-wide):
 
 ![Headcount validation](docs/figures/headcount_validation.png)
 
