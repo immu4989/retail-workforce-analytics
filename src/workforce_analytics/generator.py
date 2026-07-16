@@ -300,13 +300,36 @@ class WorkforceSimulator:
             anniversary = active & (month > emp["hire_month"]) & \
                 ((month - emp["hire_month"]) % 12 == 0)
             if anniversary.any():
+                # Draw raises BEFORE any freeze filter so the random stream is
+                # identical with and without wage programs (paired experiments).
                 raises = 1 + np.clip(rng.normal(cfg.merit_raise_mean, cfg.merit_raise_sd,
                                                 int(anniversary.sum())), 0.005, 0.08)
-                emp.loc[anniversary, "pay_rate"] = emp.loc[anniversary, "pay_rate"] * raises
-                emp.loc[anniversary, "last_raise_month"] = month
+                frozen_roles: set = set()
+                for prog in cfg.wage_programs:
+                    if prog.freezes(month):
+                        frozen_roles |= set(prog.roles)
+                eligible = anniversary & ~emp["role"].isin(frozen_roles)
+                keep = eligible[anniversary].to_numpy()
+                emp.loc[eligible, "pay_rate"] = emp.loc[eligible, "pay_rate"] * raises[keep]
+                emp.loc[eligible, "last_raise_month"] = month
+
+            for prog in cfg.wage_programs:
+                if prog.applies_raise(month):
+                    bump = active & emp["role"].isin(prog.roles)
+                    emp.loc[bump, "pay_rate"] = emp.loc[bump, "pay_rate"] * (1 + prog.pct)
+                    emp.loc[bump, "last_raise_month"] = month
 
             market_by_store = stores.set_index("store_id")["cost_index"] * self._market_mult
             market_role = emp["role"].map(cfg.market_pay)
+
+            for prog in cfg.wage_programs:
+                if prog.floors(month):
+                    market_pay = market_role * emp["store_id"].map(market_by_store)
+                    floor_pay = prog.floor_ratio * market_pay
+                    lift = active & emp["role"].isin(prog.roles) \
+                        & (emp["pay_rate"] < floor_pay)
+                    emp.loc[lift, "pay_rate"] = floor_pay[lift]
+                    emp.loc[lift, "last_raise_month"] = month
             emp["pay_ratio"] = emp["pay_rate"] / (
                 market_role * emp["store_id"].map(market_by_store))
 

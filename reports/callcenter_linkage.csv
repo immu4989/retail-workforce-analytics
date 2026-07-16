@@ -1,0 +1,3 @@
+topic,true_driver,expected_sign,correlation_across_stores
+scheduling,volatility,+,0.707
+pay_error,pay_ratio,-,-0.192

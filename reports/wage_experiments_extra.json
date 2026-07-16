@@ -1,0 +1,53 @@
+{
+  "ongoing 95% pay floor": {
+    "program": "ongoing 95% pay floor",
+    "n_seeds": 3,
+    "eval_start_month": 36,
+    "monthly_exit_rate_base": 0.0687,
+    "monthly_exit_rate_program": 0.0668,
+    "relative_exit_reduction_pct": 2.7,
+    "exits_avoided_mean": 105.7,
+    "extra_wage_bill_mean": 777697.0,
+    "replacement_savings_mean": 660417.0,
+    "net_value_mean": -117280.0,
+    "net_value_ci90": [
+      -456635.0,
+      222075.0
+    ],
+    "pay_ratio_lift": 0.0062
+  },
+  "12-month merit freeze": {
+    "program": "12-month merit freeze",
+    "n_seeds": 3,
+    "eval_start_month": 36,
+    "monthly_exit_rate_base": 0.0687,
+    "monthly_exit_rate_program": 0.0692,
+    "relative_exit_reduction_pct": -0.8,
+    "exits_avoided_mean": -26.7,
+    "extra_wage_bill_mean": -1396203.0,
+    "replacement_savings_mean": -166667.0,
+    "net_value_mean": 1229536.0,
+    "net_value_ci90": [
+      1001535.0,
+      1457538.0
+    ],
+    "pay_ratio_lift": -0.0099
+  },
+  "seasonal +3% every July": {
+    "program": "seasonal +3% every July",
+    "n_seeds": 3,
+    "eval_start_month": 36,
+    "monthly_exit_rate_base": 0.0687,
+    "monthly_exit_rate_program": 0.0631,
+    "relative_exit_reduction_pct": 8.0,
+    "exits_avoided_mean": 295.3,
+    "extra_wage_bill_mean": 4860364.0,
+    "replacement_savings_mean": 1845833.0,
+    "net_value_mean": -3014531.0,
+    "net_value_ci90": [
+      -3163651.0,
+      -2865411.0
+    ],
+    "pay_ratio_lift": 0.0349
+  }
+}

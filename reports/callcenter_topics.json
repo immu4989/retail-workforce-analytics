@@ -1,0 +1,13 @@
+{
+  "n_calls": 16990,
+  "nmi": 0.88,
+  "purity": 0.948,
+  "cluster_to_topic": {
+    "0": "scheduling",
+    "1": "pay_error",
+    "2": "app_tech",
+    "3": "benefits",
+    "4": "leave",
+    "5": "scheduling"
+  }
+}

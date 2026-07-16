@@ -44,6 +44,15 @@ from .mobility import (
     promotion_events,
 )
 from .contagion import contagion_analysis, peer_exit_exposure
+from .config import WageProgram
+from .compensation import event_study, pay_elasticity, pay_shift, run_wage_experiment
+from .callcenter import (
+    CallCenterGroundTruth,
+    CallTopicModel,
+    operational_linkage,
+    simulate_calls,
+    topic_trends,
+)
 
 __version__ = "0.1.0"
 
@@ -98,4 +107,14 @@ __all__ = [
     "promotion_events",
     "contagion_analysis",
     "peer_exit_exposure",
+    "WageProgram",
+    "event_study",
+    "pay_elasticity",
+    "pay_shift",
+    "run_wage_experiment",
+    "CallCenterGroundTruth",
+    "CallTopicModel",
+    "operational_linkage",
+    "simulate_calls",
+    "topic_trends",
 ]

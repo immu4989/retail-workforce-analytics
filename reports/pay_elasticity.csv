@@ -1,0 +1,3 @@
+specification,pay_ratio_log_odds,hazard_change_per_+10pct_pay
+naive (pay only),-3.09,-26.5%
+adjusted (standard controls),-1.91,-17.4%

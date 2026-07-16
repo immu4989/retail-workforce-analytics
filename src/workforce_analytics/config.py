@@ -109,6 +109,54 @@ class GroundTruth:
 
 
 @dataclass
+class WageProgram:
+    """A compensation policy applied inside the simulation.
+
+    ``kind="raise"`` bumps matching employees' pay by ``pct`` — either once
+    (``start_month``) or every year (``every_month_of_year``, e.g. 7 for a
+    July seasonal increase). ``kind="freeze"`` suppresses anniversary merit
+    raises for matching employees between ``start_month`` and ``end_month``
+    inclusive (market pay keeps drifting, so real pay position erodes).
+    ``kind="floor"`` is an ongoing targeted policy: every month in the
+    window, anyone paid below ``floor_ratio`` of their local market median
+    is brought up to it — the surgical alternative to a blanket raise.
+
+    Programs consume no random draws, so a run with programs is exactly the
+    baseline run up to the causal consequences of the pay changes — same
+    seed, same people, same shocks. That is what makes A/B experiments at
+    the simulator level valid.
+    """
+
+    name: str
+    kind: str = "raise"                       # "raise" | "freeze" | "floor"
+    pct: float = 0.0
+    floor_ratio: float = 0.95                 # kind="floor" only
+    roles: tuple[str, ...] = HOURLY_ROLES
+    start_month: int | None = None
+    end_month: int | None = None
+    every_month_of_year: int | None = None
+
+    def _in_window(self, month: int) -> bool:
+        return (self.start_month or 0) <= month <= (
+            self.end_month if self.end_month is not None else 10 ** 6)
+
+    def applies_raise(self, month: int) -> bool:
+        if self.kind != "raise":
+            return False
+        if self.start_month is not None and month == self.start_month:
+            return True
+        return (self.every_month_of_year is not None
+                and month % 12 + 1 == self.every_month_of_year
+                and (self.start_month is None or month >= self.start_month))
+
+    def freezes(self, month: int) -> bool:
+        return self.kind == "freeze" and self._in_window(month)
+
+    def floors(self, month: int) -> bool:
+        return self.kind == "floor" and self._in_window(month)
+
+
+@dataclass
 class SimulationConfig:
     """Size, horizon and labour-market settings for a simulated company."""
 
@@ -140,5 +188,8 @@ class SimulationConfig:
     market_drift_monthly: float = 0.0025    # market pay rises ~3%/yr
     merit_raise_mean: float = 0.030          # annual merit increase
     merit_raise_sd: float = 0.010
+
+    # Compensation policies to run inside the simulation (see WageProgram).
+    wage_programs: list = field(default_factory=list)
 
     ground_truth: GroundTruth = field(default_factory=GroundTruth)

@@ -14,11 +14,12 @@ a minute.
 
 ```
 pip install -e ".[dev]"
-python examples/run_pipeline.py      # use cases 1-4: turnover, headcount, drivers
-python examples/run_operations.py    # use cases 5-9: scheduling, call-outs, funnel, bench
+python examples/run_pipeline.py        # use cases 1-4: turnover, headcount, drivers
+python examples/run_operations.py      # use cases 5-9: scheduling, call-outs, funnel, bench
+python examples/run_comp_and_voice.py  # use cases 10-11: wage experiments, call topics
 ```
 
-## The nine use cases
+## The eleven use cases
 
 | # | Use case | Module | Detailed writeup |
 |---|----------|--------|------------------|
@@ -31,11 +32,14 @@ python examples/run_operations.py    # use cases 5-9: scheduling, call-outs, fun
 | 7 | Hiring funnel analytics + requisition timing | `simulate_funnel`, `req_timing` | [docs/use_cases/07_hiring_funnel.md](docs/use_cases/07_hiring_funnel.md) |
 | 8 | Promotion readiness + leadership bench strength | `PromotionModel`, `bench_strength` | [docs/use_cases/08_internal_mobility.md](docs/use_cases/08_internal_mobility.md) |
 | 9 | Turnover contagion, and why the naive estimate misleads | `contagion_analysis` | [docs/use_cases/09_turnover_contagion.md](docs/use_cases/09_turnover_contagion.md) |
+| 10 | Compensation analytics: raises, floors, freezes, priced by true experiments | `WageProgram`, `run_wage_experiment` | [docs/use_cases/10_compensation.md](docs/use_cases/10_compensation.md) |
+| 11 | Employee call-center topic mining (voice of the frontline) | `simulate_calls`, `CallTopicModel` | [docs/use_cases/11_call_center_topics.md](docs/use_cases/11_call_center_topics.md) |
 
 Use cases 1-4 are the people-side stack (`examples/run_pipeline.py`);
-5-9 are the operations stack (`examples/run_operations.py`). What large
-operators run beyond these, and what each would need to be added with the
-same rigour, is in [docs/ROADMAP.md](docs/ROADMAP.md).
+5-9 are the operations stack (`examples/run_operations.py`); 10-11 are
+compensation and voice-of-the-frontline (`examples/run_comp_and_voice.py`).
+What large operators run beyond these, and what each would need to be added
+with the same rigour, is in [docs/ROADMAP.md](docs/ROADMAP.md).
 
 ## What makes this different from the usual attrition demo
 
@@ -122,6 +126,8 @@ the outputs. On the simulated company, roughly 2,900 employees:
 | Headcount plan accuracy | 699 predicted vs 710 actual exits over 6 months |
 | Demand-driven scheduling vs staff-to-average | $328 per store-week, $2.4M/yr chain-wide |
 | Hourly demand forecast | WAPE 17.8% vs 24.1% seasonal-naive, at 94% week-over-week schedule stability |
+| Targeted 95% pay floor vs blanket +5% raise | ~2.5x more retention per wage dollar (true paired experiments) |
+| Merit freeze | "saves" $1.2M on replacement-cost accounting — the trap use case 10 dissects |
 
 ![Intervention value](docs/figures/intervention_value.png)
 
@@ -145,6 +151,19 @@ Stratify on store conditions and it vanishes — the naive estimate was
 confounding, and the testbed proves it:
 
 ![Contagion](docs/figures/contagion.png)
+
+Use case 10 goes one step further than what-if models: it reruns the
+*world* with and without a wage program on paired seeds, so the two arms are
+the same company until the policy lands — a true experiment on pay:
+
+![Wage event study](docs/figures/wage_event_study.png)
+
+And use case 11 mines the employee support line: an unsupervised topic model
+recovers the planted call topics (NMI 0.88), and call volumes carry real
+operational signal — stores that call about scheduling are the stores with
+chaotic schedules (r = 0.71):
+
+![Call center topics](docs/figures/callcenter_topics.png)
 
 ## Quick tour
 
@@ -208,8 +227,10 @@ src/workforce_analytics/
     funnel.py       hiring funnel simulator, stage conversion, requisition timing
     mobility.py     promotion events, readiness model, bench strength
     contagion.py    peer-exit exposure analysis, raw vs stratified
-examples/           two pipelines (people + operations) producing reports/ and figures
-tests/              41 tests: realism, leakage, calibration, SHAP additivity, accounting
+    compensation.py pay elasticity, wage-program experiments (raise/floor/freeze)
+    callcenter.py   synthetic transcripts with hidden topics, NMF topic model
+examples/           three pipelines (people, operations, comp & voice)
+tests/              50 tests: realism, leakage, calibration, SHAP additivity, accounting
 docs/               per-use-case writeups, roadmap, guide to adapting real HRIS data
 ```
 
