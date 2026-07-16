@@ -1,4 +1,4 @@
-# retail-workforce-analytics
+# Retail Industry Workforce Analytics
 
 Production-style people analytics for hourly retail workforces: multi-horizon
 turnover prediction, headcount forecasting, and attrition-driver analysis,
