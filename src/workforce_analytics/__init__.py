@@ -85,6 +85,27 @@ from .onboarding import (
     new_hire_watchlist,
     simulate_onboarding,
 )
+from .exitnlp import (
+    ExitNLPGroundTruth,
+    ExitThemeModel,
+    simulate_exit_comments,
+    theme_by_regrettability,
+    theme_driver_alignment,
+)
+from .tasks import (
+    TaskGroundTruth,
+    mix_staffing_summary,
+    recover_task_seconds,
+    simulate_order_mix,
+    staffing_comparison,
+)
+from .payequity import (
+    PayEquityGroundTruth,
+    assign_group_and_gap,
+    audit_pay_gap,
+    audit_power_fpr,
+    build_employee_frame,
+)
 
 __version__ = "0.1.0"
 
@@ -173,4 +194,19 @@ __all__ = [
     "milestone_retention",
     "new_hire_watchlist",
     "simulate_onboarding",
+    "ExitNLPGroundTruth",
+    "ExitThemeModel",
+    "simulate_exit_comments",
+    "theme_by_regrettability",
+    "theme_driver_alignment",
+    "TaskGroundTruth",
+    "mix_staffing_summary",
+    "recover_task_seconds",
+    "simulate_order_mix",
+    "staffing_comparison",
+    "PayEquityGroundTruth",
+    "assign_group_and_gap",
+    "audit_pay_gap",
+    "audit_power_fpr",
+    "build_employee_frame",
 ]

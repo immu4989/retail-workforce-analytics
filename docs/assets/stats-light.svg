@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 110" role="img"
-     aria-label="14 decision systems, 84 tests in CI, 6 one-command pipelines, 0 rows of real HR data">
+     aria-label="17 decision systems, 101 tests in CI, 9 one-command pipelines, 0 rows of real HR data">
   <rect x="1" y="1" width="1198" height="108" rx="12" fill="#fcfcfb" stroke="rgba(11,11,11,0.12)"/>
   <g font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" text-anchor="middle">
-    <text x="150" y="56" font-size="38" font-weight="650" fill="#2a78d6">14</text>
+    <text x="150" y="56" font-size="38" font-weight="650" fill="#2a78d6">17</text>
     <text x="150" y="84" font-size="15" fill="#52514e">decision systems</text>
     <line x1="300" y1="24" x2="300" y2="86" stroke="#e1e0d9"/>
-    <text x="450" y="56" font-size="38" font-weight="650" fill="#2a78d6">84</text>
+    <text x="450" y="56" font-size="38" font-weight="650" fill="#2a78d6">101</text>
     <text x="450" y="84" font-size="15" fill="#52514e">tests in CI</text>
     <line x1="600" y1="24" x2="600" y2="86" stroke="#e1e0d9"/>
-    <text x="750" y="56" font-size="38" font-weight="650" fill="#2a78d6">6</text>
+    <text x="750" y="56" font-size="38" font-weight="650" fill="#2a78d6">9</text>
     <text x="750" y="84" font-size="15" fill="#52514e">one-command pipelines</text>
     <line x1="900" y1="24" x2="900" y2="86" stroke="#e1e0d9"/>
     <text x="1050" y="56" font-size="38" font-weight="650" fill="#008300">0</text>

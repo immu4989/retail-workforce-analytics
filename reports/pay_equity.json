@@ -1,0 +1,32 @@
+{
+  "recovery_no_confounding": {
+    "n_employees": 12852,
+    "unadjusted_gap": 0.0389,
+    "adjusted_gap": 0.0406,
+    "adjusted_ci": [
+      0.0381,
+      0.043
+    ],
+    "p_value": 0.0,
+    "significant_at_05": true
+  },
+  "recovery_confounded": {
+    "n_employees": 12852,
+    "unadjusted_gap": 0.0725,
+    "adjusted_gap": 0.0406,
+    "adjusted_ci": [
+      0.0381,
+      0.0432
+    ],
+    "p_value": 0.0,
+    "significant_at_05": true
+  },
+  "power_fpr": {
+    "n_reps": 200,
+    "planted_gap": 0.02,
+    "power": 1.0,
+    "false_positive_rate": 0.07,
+    "mean_gap_estimate": 0.0202,
+    "gap_estimate_bias": 0.0002
+  }
+}

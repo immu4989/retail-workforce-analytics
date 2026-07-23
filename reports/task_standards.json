@@ -1,0 +1,38 @@
+{
+  "staffing_summary": {
+    "n_store_hours": 758940,
+    "avg_flat_labor_hours": 2.384,
+    "avg_task_labor_hours": 2.34,
+    "avg_ratio_task_to_flat": 0.982,
+    "corr_mobile_share_vs_gap": 0.419,
+    "top_mobile_decile_flat_under_provision_pct": 9.4,
+    "bottom_mobile_decile_flat_over_provision_pct": -11.5,
+    "share_hours_flat_understaffs": 0.083
+  },
+  "task_time_recovery": [
+    {
+      "channel": "front_counter",
+      "true_seconds": 135.0,
+      "recovered_seconds": 136.5,
+      "pct_error": 1.1
+    },
+    {
+      "channel": "drive_thru",
+      "true_seconds": 157.0,
+      "recovered_seconds": 158.9,
+      "pct_error": 1.21
+    },
+    {
+      "channel": "mobile_pickup",
+      "true_seconds": 261.0,
+      "recovered_seconds": 263.7,
+      "pct_error": 1.04
+    },
+    {
+      "channel": "delivery",
+      "true_seconds": 296.0,
+      "recovered_seconds": 299.5,
+      "pct_error": 1.19
+    }
+  ]
+}

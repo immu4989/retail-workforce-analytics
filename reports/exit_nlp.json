@@ -1,0 +1,145 @@
+{
+  "recovery": {
+    "n_comments": 10304,
+    "nmi": 0.925,
+    "purity": 0.97,
+    "cluster_to_theme": {
+      "0": "pay",
+      "1": "management",
+      "2": "scheduling",
+      "3": "commute",
+      "4": "career",
+      "5": "workload"
+    }
+  },
+  "alignment": [
+    {
+      "theme": "pay",
+      "driver": "pay_ratio",
+      "expected_sign": "-",
+      "driver_mean_on_theme": 0.949,
+      "driver_mean_off_theme": 0.998,
+      "aligned_gap": 0.049,
+      "aligned": true
+    },
+    {
+      "theme": "scheduling",
+      "driver": "schedule_volatility",
+      "expected_sign": "+",
+      "driver_mean_on_theme": 5.331,
+      "driver_mean_off_theme": 3.207,
+      "aligned_gap": 2.124,
+      "aligned": true
+    },
+    {
+      "theme": "commute",
+      "driver": "commute_km",
+      "expected_sign": "+",
+      "driver_mean_on_theme": 10.763,
+      "driver_mean_off_theme": 5.613,
+      "aligned_gap": 5.15,
+      "aligned": true
+    },
+    {
+      "theme": "management",
+      "driver": "months_since_mgr_change",
+      "expected_sign": "-",
+      "driver_mean_on_theme": 16.456,
+      "driver_mean_off_theme": 33.751,
+      "aligned_gap": 17.295,
+      "aligned": true
+    },
+    {
+      "theme": "career",
+      "driver": "months_since_promotion",
+      "expected_sign": "+",
+      "driver_mean_on_theme": 32.734,
+      "driver_mean_off_theme": 7.344,
+      "aligned_gap": 25.39,
+      "aligned": true
+    },
+    {
+      "theme": "workload",
+      "driver": "store_staffing_ratio",
+      "expected_sign": "-",
+      "driver_mean_on_theme": 0.899,
+      "driver_mean_off_theme": 0.966,
+      "aligned_gap": 0.067,
+      "aligned": true
+    }
+  ],
+  "regrettability": [
+    {
+      "termination_type": "involuntary",
+      "true_theme": "career",
+      "n": 256,
+      "share": 0.146
+    },
+    {
+      "termination_type": "involuntary",
+      "true_theme": "commute",
+      "n": 279,
+      "share": 0.16
+    },
+    {
+      "termination_type": "involuntary",
+      "true_theme": "management",
+      "n": 336,
+      "share": 0.192
+    },
+    {
+      "termination_type": "involuntary",
+      "true_theme": "pay",
+      "n": 309,
+      "share": 0.177
+    },
+    {
+      "termination_type": "involuntary",
+      "true_theme": "scheduling",
+      "n": 274,
+      "share": 0.157
+    },
+    {
+      "termination_type": "involuntary",
+      "true_theme": "workload",
+      "n": 295,
+      "share": 0.169
+    },
+    {
+      "termination_type": "voluntary",
+      "true_theme": "career",
+      "n": 1334,
+      "share": 0.156
+    },
+    {
+      "termination_type": "voluntary",
+      "true_theme": "commute",
+      "n": 1421,
+      "share": 0.166
+    },
+    {
+      "termination_type": "voluntary",
+      "true_theme": "management",
+      "n": 1647,
+      "share": 0.193
+    },
+    {
+      "termination_type": "voluntary",
+      "true_theme": "pay",
+      "n": 1421,
+      "share": 0.166
+    },
+    {
+      "termination_type": "voluntary",
+      "true_theme": "scheduling",
+      "n": 1333,
+      "share": 0.156
+    },
+    {
+      "termination_type": "voluntary",
+      "true_theme": "workload",
+      "n": 1399,
+      "share": 0.164
+    }
+  ]
+}

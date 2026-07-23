@@ -1,6 +1,6 @@
 # Roadmap: use cases the industry runs that this repo doesn't cover yet
 
-The fourteen implemented use cases cover the systems that plan, staff and
+The seventeen implemented use cases cover the systems that plan, staff and
 retain an hourly workforce. This page lists what large operators (Starbucks,
 McDonald's, Chipotle, Taco Bell/Yum and their WFM vendors) run beyond them,
 and what each would need before it belongs here. The bar for inclusion is
@@ -9,6 +9,9 @@ truth, an honest baseline, and out-of-time evaluation — no use case ships as
 a demo on a static CSV.
 
 ## Shipped since first draft
+
+Every near-term item from the original roadmap has since been built to the same
+bar. What remains below needs new data surfaces.
 
 **Staffing-to-sales elasticity** (use case 12). Quantifies lost sales per
 understaffed hour by adding a service-loss term (queue abandonment above a
@@ -34,23 +37,26 @@ core generator. The training-completion gap is deliberately part causal, part
 onboarding-quality confounding, mirroring use cases 9 and 10. See
 `onboarding.py` and `docs/use_cases/14_onboarding.md`.
 
-## Medium-term (new data surfaces required)
+**Exit-interview and pulse-survey NLP** (use case 15). A synthetic
+exit-comment generator whose hidden theme is tied to the true hazard driver
+behind each leaver's exit, recovered unsupervised (TF-IDF + NMF, NMI 0.93) and
+validated for *alignment* — the pay-theme cluster is written by the leavers the
+hazard model underpaid. See `exitnlp.py` and `docs/use_cases/15_exit_nlp.md`.
 
-**Pay equity audit.** Residual pay-gap analysis after controlling for role,
-tenure, market and performance. The simulator would need demographic
-attributes assigned with *known* planted gaps so the audit's power and
-false-positive rate can be validated — the same oracle trick as everything
-else here, and the reason to do this carefully or not at all.
+**Task-level labor standards** (use case 16). An order-mix layer (front
+counter / drive-thru / mobile / delivery) on the traffic simulator with
+per-channel task times, showing the flat 18/hour rate under-provisions the
+highest-mobile hours by ~9% even though it agrees on average; the task times
+are recoverable within ~1%. See `tasks.py` and
+`docs/use_cases/16_task_standards.md`.
 
-**Exit-interview and pulse-survey NLP.** Text is a different modality: a
-synthetic exit-comment generator with themes tied to the true hazard
-drivers, then topic extraction validated against those themes. Would pair
-naturally with use case 4's driver ranking.
+**Pay-equity audit** (use case 17). Residual pay-gap analysis with a synthetic
+group and a *known* planted gap, so the audit's recovery, the confounding fixed
+by controls, and its power and false-positive rate are all measured. Done
+carefully, with the group as a methodology-validation construct only. See
+`payequity.py` and `docs/use_cases/17_pay_equity.md`.
 
-**Task-level labor standards.** Use case 5 converts transactions to heads
-with a single service rate; real systems build up from task times (drive-
-thru vs front counter vs mobile-order assembly). Needs an order-mix layer
-in the traffic simulator.
+## Still on the roadmap (new data surfaces required)
 
 **Geographic transfer matching.** Commute distance is a planted turnover
 driver; matching employees to closer stores when vacancies open is a
