@@ -1,0 +1,19 @@
+{
+  "clean_findings": [],
+  "planted": {
+    "backfilled_rating": 3193,
+    "termination_pay_spike": 1397,
+    "notice_period_hours_collapse": 1353,
+    "trailing_payroll_rows": 208
+  },
+  "messy_findings": {
+    "post_termination_rows": 208,
+    "backfilled_ratings": 570,
+    "termination_pay_spike": 1164,
+    "notice_period_hours_collapse": 807
+  },
+  "hours_auc_clean": 0.563,
+  "hours_auc_messy": 0.618,
+  "mean_final_pay_clean": 18.82,
+  "mean_final_pay_messy": 21.23
+}

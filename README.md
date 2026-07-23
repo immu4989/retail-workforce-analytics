@@ -6,7 +6,7 @@
 <p align="center">
   <a href="https://github.com/immu4989/retail-workforce-analytics/actions/workflows/ci.yml"><img src="https://github.com/immu4989/retail-workforce-analytics/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <img src="https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-2a78d6" alt="Python 3.10-3.12">
-  <img src="https://img.shields.io/badge/tests-50%20passing-008300" alt="50 tests">
+  <img src="https://img.shields.io/badge/tests-60%20passing-008300" alt="60 tests">
   <img src="https://img.shields.io/badge/HR%20data-100%25%20synthetic-184f95" alt="100% synthetic data">
   <img src="https://img.shields.io/badge/license-MIT-52514e" alt="MIT license">
 </p>
@@ -34,7 +34,7 @@ built on real HR data, and no static demo dataset, can offer.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/assets/stats-dark.svg">
-  <img alt="11 decision systems, 50 tests in CI, 3 one-command pipelines, 0 rows of real HR data" src="docs/assets/stats-light.svg" width="100%">
+  <img alt="11 decision systems, 60 tests in CI, 4 one-command pipelines, 0 rows of real HR data" src="docs/assets/stats-light.svg" width="100%">
 </picture>
 
 > [!TIP]
@@ -231,6 +231,7 @@ pip install -e ".[dev]"
 python examples/run_pipeline.py        # 1-4: turnover, headcount, drivers      (~2 min)
 python examples/run_operations.py      # 5-9: scheduling, call-outs, funnel     (~3 min)
 python examples/run_comp_and_voice.py  # 10-11: wage experiments, call topics   (~4 min)
+python examples/run_real_data_audit.py # audit an extract for leakage before you model (~30 s)
 ```
 
 Everything lands in `reports/` (CSV/JSON) and `docs/figures/` (PNG).
@@ -301,8 +302,9 @@ src/workforce_analytics/
     contagion.py    peer-exit exposure analysis, raw vs stratified
     compensation.py pay elasticity, wage-program experiments (raise/floor/freeze)
     callcenter.py   synthetic transcripts with hidden topics, NMF topic model
-examples/           three pipelines (people, operations, comp & voice)
-tests/              50 tests: realism, leakage, calibration, SHAP additivity, accounting
+    realdata.py     HRIS-extract audit: contract validator + leakage linters
+examples/           four scripts (people, operations, comp & voice, real-data audit)
+tests/              60 tests: realism, leakage, calibration, SHAP additivity, accounting
 docs/               per-use-case writeups, roadmap, guide to adapting real HRIS data
 ```
 </details>
@@ -312,10 +314,40 @@ docs/               per-use-case writeups, roadmap, guide to adapting real HRIS 
 Shape your HRIS extract like `person_months` (one row per employee per
 month; the full contract is in
 [docs/adapting_to_real_data.md](docs/adapting_to_real_data.md)) and
-everything downstream of the generator works unchanged. Two cautions that
-matter more than any modelling choice: keep features point-in-time (no
-backfilled ratings, no post-termination edits), and treat driver analysis as
-hypothesis generation until a lever has been validated with an experiment.
+everything downstream of the generator works unchanged. Before you model,
+**audit the extract** — the data mistakes that sink these projects are silent
+and produce a confident, wrong model:
+
+```python
+from workforce_analytics import validate_person_months, audit_split
+
+report = validate_person_months(your_person_months)
+print(report.summary())        # contract errors + leakage warnings, with row counts
+report.raise_if_errors()       # stop the pipeline on hard violations
+```
+
+`validate_person_months` checks the contract (schema, one spell per employee,
+contiguous months, no rows after termination) and runs leakage linters for
+the failure modes that manufacture a fake AUC: **backfilled ratings** (the
+HRIS stamping today's rating onto history), **termination-row pay spikes**
+(severance and PTO payouts corrupting exit-pay analytics), and **in-notice
+hours collapse** (employees taken off the schedule before they leave, which
+lets a model predict paperwork instead of risk). `audit_split` catches the
+random-split mistake on an already-built snapshot table.
+
+Every linter is calibrated and validated against *planted* bugs, the same
+oracle trick the models use — `make_messy_extract` injects each documented
+mistake into clean simulator output with a per-employee log, so recall and
+false-positive rate are measured, not asserted. Run the whole demonstration,
+including how much each bug inflates the numbers if it slips through:
+
+```bash
+python examples/run_real_data_audit.py
+```
+
+Two cautions still matter more than any modelling choice: keep features
+point-in-time, and treat driver analysis as hypothesis generation until a
+lever has been validated with an experiment.
 
 The same document covers the ethical guardrails: aggregate before sharing,
 no protected attributes as features, retention actions that are

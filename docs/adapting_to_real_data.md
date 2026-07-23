@@ -31,11 +31,49 @@ Build one row per employee per month they were active, with these columns:
 | `terminated` | 0/1 | 1 only in the employee's final month |
 | `termination_type` | str | `voluntary` / `involuntary`; lets you model regrettable attrition separately |
 
-Then:
+Then audit the extract before you build anything on it:
 
 ```python
+from workforce_analytics import validate_person_months, build_snapshots
+
+validate_person_months(your_person_months).raise_if_errors()
 snaps = build_snapshots(your_person_months, horizons=(3, 6, 12))
 ```
+
+## Audit before you model
+
+`validate_person_months` turns the rest of this page into code. It returns a
+report of **errors** (contract violations that break `build_snapshots` or
+silently corrupt labels — missing columns, duplicate person-months, gaps from
+rehires reusing an id, rows after termination, tenure not advancing with the
+calendar) and **warnings** (leakage linters for the failure modes below).
+`report.raise_if_errors()` stops a pipeline on the errors; `report.summary()`
+prints everything with affected-row counts, and each finding carries the full
+`employee_ids` list so you can go straight to the offending records.
+
+The three leakage linters are population-level: they compare your extract to
+the rate seen in clean data and flag it only when it is far above baseline.
+
+| Linter | What it catches | Clean baseline / flag |
+|--------|-----------------|----------------------|
+| `backfilled_ratings` | one performance rating stamped across an employee's whole history | ~19% of 24-month+ employees / 35% |
+| `termination_pay_spike` | severance or PTO payout on the final row | ~0.1% of leavers / 2% |
+| `notice_period_hours_collapse` | in-notice employees taken off the schedule before they leave | 0% of hourly leavers / 2% |
+
+`audit_split(train, test)` catches the random-split mistake on an
+already-built snapshot table — if any training month is not strictly before
+every test month, it reports the overlap instead of letting you trust a
+memorised-identity AUC.
+
+These thresholds are not guesses. `make_messy_extract` injects each mistake
+into clean simulator output with a per-employee log of exactly what was
+planted, and `tests/test_realdata.py` measures the linters' recall and
+false-positive rate against that log — the same oracle trick this repo uses
+to validate model claims. `examples/run_real_data_audit.py` runs the whole
+demonstration end to end, including how much each bug inflates a headline
+number if it slips through (a single feature's AUC jumps from 0.56 to 0.62
+under in-notice leakage; mean exit pay rises 13% under termination-row
+adjustments).
 
 ## The mistakes that actually sink these projects
 

@@ -53,6 +53,14 @@ from .callcenter import (
     simulate_calls,
     topic_trends,
 )
+from .realdata import (
+    Finding,
+    MessyExtract,
+    ValidationReport,
+    audit_split,
+    make_messy_extract,
+    validate_person_months,
+)
 
 __version__ = "0.1.0"
 
@@ -117,4 +125,10 @@ __all__ = [
     "operational_linkage",
     "simulate_calls",
     "topic_trends",
+    "Finding",
+    "MessyExtract",
+    "ValidationReport",
+    "audit_split",
+    "make_messy_extract",
+    "validate_person_months",
 ]

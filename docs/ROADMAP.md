@@ -20,7 +20,9 @@ would let the $35/hour understaffing cost be *derived* instead of assumed.
 scheduled hours + noise + injected anomalies (systematic OT inflation,
 ghost shifts, buddy punching), then robust per-store residual monitoring
 with a measurable precision/recall on the planted anomalies. Needs a
-punch-data layer on top of the use case 5 scheduler.
+punch-data layer on top of the use case 5 scheduler. (The planted-bug
+pattern this would use already ships for data-quality auditing — see
+`realdata.py` and `make_messy_extract`.)
 
 **First-90-day onboarding risk.** The washout is already the largest hazard
 in the ground truth and the 3-month model captures it; a dedicated view
