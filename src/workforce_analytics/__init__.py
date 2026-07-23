@@ -68,6 +68,16 @@ from .elasticity import (
     service_outcome,
     staffing_sales_elasticity,
 )
+from .punchclock import (
+    AnomalyGroundTruth,
+    PunchPanel,
+    detect_buddy_punching,
+    detect_ghost_shifts,
+    detect_time_padding,
+    evaluate_detection,
+    labor_leakage,
+    simulate_punches,
+)
 
 __version__ = "0.1.0"
 
@@ -143,4 +153,12 @@ __all__ = [
     "service_loss_curve",
     "service_outcome",
     "staffing_sales_elasticity",
+    "AnomalyGroundTruth",
+    "PunchPanel",
+    "detect_buddy_punching",
+    "detect_ghost_shifts",
+    "detect_time_padding",
+    "evaluate_detection",
+    "labor_leakage",
+    "simulate_punches",
 ]

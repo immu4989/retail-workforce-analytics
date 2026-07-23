@@ -1,6 +1,6 @@
 # Roadmap: use cases the industry runs that this repo doesn't cover yet
 
-The twelve implemented use cases cover the systems that plan, staff and
+The thirteen implemented use cases cover the systems that plan, staff and
 retain an hourly workforce. This page lists what large operators (Starbucks,
 McDonald's, Chipotle, Taco Bell/Yum and their WFM vendors) run beyond them,
 and what each would need before it belongs here. The bar for inclusion is
@@ -17,15 +17,14 @@ traffic, letting the $35/hour understaffing cost be *derived* (it lands at
 $34.71) instead of assumed. See `elasticity.py` and
 `docs/use_cases/12_staffing_elasticity.md`.
 
-## Near-term (the current simulator mostly supports them)
+**Overtime and labor-cost anomaly detection** (use case 13). A punch-clock
+layer on the schedule with planted anomalies (time padding, ghost shifts,
+buddy punching), detected by robust per-grain residual monitors with measured
+precision/recall against the planted log — recovering ~$1.5M/yr of leakage on
+the simulated chain. See `punchclock.py` and
+`docs/use_cases/13_labor_anomaly.md`.
 
-**Overtime and labor-cost anomaly detection.** Punch-clock data =
-scheduled hours + noise + injected anomalies (systematic OT inflation,
-ghost shifts, buddy punching), then robust per-store residual monitoring
-with a measurable precision/recall on the planted anomalies. Needs a
-punch-data layer on top of the use case 5 scheduler. (The planted-bug
-pattern this would use already ships for data-quality auditing — see
-`realdata.py` and `make_messy_extract`.)
+## Near-term (the current simulator mostly supports them)
 
 **First-90-day onboarding risk.** The washout is already the largest hazard
 in the ground truth and the 3-month model captures it; a dedicated view

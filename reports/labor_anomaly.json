@@ -1,0 +1,32 @@
+{
+  "detection": {
+    "time_padding": {
+      "planted": 399,
+      "flagged": 417,
+      "precision": 0.952,
+      "recall": 0.995,
+      "average_precision": 0.999
+    },
+    "ghost_shifts": {
+      "planted": 256,
+      "flagged": 283,
+      "precision": 0.83,
+      "recall": 0.918,
+      "average_precision": 0.957
+    },
+    "buddy_punching": {
+      "planted": 2001,
+      "flagged": 2026,
+      "precision": 0.832,
+      "recall": 0.843,
+      "average_precision": 0.904
+    }
+  },
+  "leakage": {
+    "annual_leakage_total": 1468459.0,
+    "annual_leakage_time_padding": 777986.0,
+    "annual_leakage_ghost_shifts": 307733.0,
+    "annual_leakage_buddy_punching": 447427.0,
+    "loaded_wage": 21.0
+  }
+}
