@@ -6,13 +6,13 @@
 <p align="center">
   <a href="https://github.com/immu4989/retail-workforce-analytics/actions/workflows/ci.yml"><img src="https://github.com/immu4989/retail-workforce-analytics/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <img src="https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-2a78d6" alt="Python 3.10-3.12">
-  <img src="https://img.shields.io/badge/tests-77%20passing-008300" alt="77 tests">
+  <img src="https://img.shields.io/badge/tests-84%20passing-008300" alt="84 tests">
   <img src="https://img.shields.io/badge/HR%20data-100%25%20synthetic-184f95" alt="100% synthetic data">
   <img src="https://img.shields.io/badge/license-MIT-52514e" alt="MIT license">
 </p>
 
 <p align="center">
-  <a href="#the-thirteen-use-cases">Use cases</a> ·
+  <a href="#the-fourteen-use-cases">Use cases</a> ·
   <a href="#see-it-work">Results</a> ·
   <a href="#what-it-is-worth-in-dollars">Dollars</a> ·
   <a href="#quickstart">Quickstart</a> ·
@@ -34,7 +34,7 @@ built on real HR data, and no static demo dataset, can offer.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/assets/stats-dark.svg">
-  <img alt="13 decision systems, 77 tests in CI, 5 one-command pipelines, 0 rows of real HR data" src="docs/assets/stats-light.svg" width="100%">
+  <img alt="14 decision systems, 84 tests in CI, 6 one-command pipelines, 0 rows of real HR data" src="docs/assets/stats-light.svg" width="100%">
 </picture>
 
 > [!TIP]
@@ -59,7 +59,7 @@ flowchart LR
     SIM -. "paired A/B reruns" .-> WAGE["wage-program<br/>experiments"]
 ```
 
-## The thirteen use cases
+## The fourteen use cases
 
 | # | | Use case | Writeup |
 |---|---|----------|---------|
@@ -76,9 +76,10 @@ flowchart LR
 | 11 | 🎧 | Employee call-center topic mining (voice of the frontline) | [docs](docs/use_cases/11_call_center_topics.md) |
 | 12 | 📈 | Staffing-to-sales elasticity: derive the cost of an understaffed hour | [docs](docs/use_cases/12_staffing_elasticity.md) |
 | 13 | 🕵️ | Overtime & labor-cost anomaly detection (time theft, ghost shifts, buddy punching) | [docs](docs/use_cases/13_labor_anomaly.md) |
+| 14 | 🌱 | First-90-day onboarding risk + new-hire watchlist (30/60/90 milestones) | [docs](docs/use_cases/14_onboarding.md) |
 
-Use cases 1-4 are the people stack, 5-9 and 12-13 the operations stack, 10-11
-compensation and voice of the frontline — one runnable pipeline each (see
+Use cases 1-4 and 14 are the people stack, 5-9 and 12-13 the operations stack,
+10-11 compensation and voice of the frontline — one runnable pipeline each (see
 [Quickstart](#quickstart)). What large operators run beyond these, and what
 each would need to be added with the same rigour, is in
 [docs/ROADMAP.md](docs/ROADMAP.md).
@@ -235,6 +236,7 @@ python examples/run_operations.py      # 5-9: scheduling, call-outs, funnel     
 python examples/run_comp_and_voice.py  # 10-11: wage experiments, call topics   (~4 min)
 python examples/run_real_data_audit.py # audit an extract for leakage before you model (~30 s)
 python examples/run_labor_anomaly.py   # 13: detect time theft, ghost shifts, buddy punching (~40 s)
+python examples/run_onboarding.py      # 14: first-90-day washout model + new-hire watchlist (~30 s)
 ```
 
 Everything lands in `reports/` (CSV/JSON) and `docs/figures/` (PNG).
@@ -306,10 +308,11 @@ src/workforce_analytics/
     compensation.py pay elasticity, wage-program experiments (raise/floor/freeze)
     callcenter.py   synthetic transcripts with hidden topics, NMF topic model
     elasticity.py   service-loss mechanism: derive the cost of an understaffed hour
+    onboarding.py   first-90-day washout model, 30/60/90 milestones, new-hire watchlist
     punchclock.py   payroll-anomaly detection: time theft, ghost shifts, buddy punching
     realdata.py     HRIS-extract audit: contract validator + leakage linters
-examples/           five scripts (people, operations, comp & voice, real-data audit, labor anomaly)
-tests/              77 tests: realism, leakage, calibration, SHAP additivity, accounting
+examples/           six scripts (people, operations, comp & voice, real-data audit, labor anomaly, onboarding)
+tests/              84 tests: realism, leakage, calibration, SHAP additivity, accounting
 docs/               per-use-case writeups, roadmap, guide to adapting real HRIS data
 ```
 </details>

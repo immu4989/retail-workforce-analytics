@@ -1,6 +1,6 @@
 # Roadmap: use cases the industry runs that this repo doesn't cover yet
 
-The thirteen implemented use cases cover the systems that plan, staff and
+The fourteen implemented use cases cover the systems that plan, staff and
 retain an hourly workforce. This page lists what large operators (Starbucks,
 McDonald's, Chipotle, Taco Bell/Yum and their WFM vendors) run beyond them,
 and what each would need before it belongs here. The bar for inclusion is
@@ -26,10 +26,13 @@ the simulated chain. See `punchclock.py` and
 
 ## Near-term (the current simulator mostly supports them)
 
-**First-90-day onboarding risk.** The washout is already the largest hazard
-in the ground truth and the 3-month model captures it; a dedicated view
-(new-hire watchlist, training-completion effects, 30/60/90 milestones)
-needs training-program events added to the generator.
+**First-90-day onboarding risk** (use case 14). A dedicated new-hire view —
+day-30 washout model against an oracle ceiling, 30/60/90 milestone retention,
+and a ranked watchlist — with training completion added as a self-contained
+onboarding process (like the call-out simulator) rather than by touching the
+core generator. The training-completion gap is deliberately part causal, part
+onboarding-quality confounding, mirroring use cases 9 and 10. See
+`onboarding.py` and `docs/use_cases/14_onboarding.md`.
 
 ## Medium-term (new data surfaces required)
 

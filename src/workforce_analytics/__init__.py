@@ -78,6 +78,13 @@ from .punchclock import (
     labor_leakage,
     simulate_punches,
 )
+from .onboarding import (
+    OnboardingGroundTruth,
+    OnboardingModel,
+    milestone_retention,
+    new_hire_watchlist,
+    simulate_onboarding,
+)
 
 __version__ = "0.1.0"
 
@@ -161,4 +168,9 @@ __all__ = [
     "evaluate_detection",
     "labor_leakage",
     "simulate_punches",
+    "OnboardingGroundTruth",
+    "OnboardingModel",
+    "milestone_retention",
+    "new_hire_watchlist",
+    "simulate_onboarding",
 ]

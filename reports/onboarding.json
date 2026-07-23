@@ -1,0 +1,20 @@
+{
+  "evaluation": {
+    "n_hires": 3141,
+    "washout_rate": 0.486,
+    "model_auc": 0.682,
+    "ceiling_auc": 0.745,
+    "pct_of_ceiling": 91.5,
+    "top_quintile_washout_rate": 0.745
+  },
+  "milestones": {
+    "day_30_retention": 0.707,
+    "day_60_retention": 0.575,
+    "day_90_retention": 0.506,
+    "training_completion_rate": 0.713,
+    "washout_if_completed": 0.427,
+    "washout_if_incomplete": 0.663,
+    "observed_completion_gap": 0.236,
+    "note": "observed gap mixes a causal training effect with onboarding-quality confounding; treat it as an upper bound on what mandating training buys"
+  }
+}
