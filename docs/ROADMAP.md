@@ -1,12 +1,11 @@
-# Roadmap: use cases the industry runs that this repo doesn't cover yet
+# Roadmap: how the use cases grew, and where they could go next
 
-The seventeen implemented use cases cover the systems that plan, staff and
-retain an hourly workforce. This page lists what large operators (Starbucks,
-McDonald's, Chipotle, Taco Bell/Yum and their WFM vendors) run beyond them,
-and what each would need before it belongs here. The bar for inclusion is
-the same one every existing module met: a simulator with published ground
-truth, an honest baseline, and out-of-time evaluation — no use case ships as
-a demo on a static CSV.
+The eighteen implemented use cases cover the systems that plan, staff and
+retain an hourly workforce. This page records the ones added since the first
+release — every item the original roadmap named has now been built — and what a
+next round could add. The bar for inclusion is the same one every existing
+module met: a simulator with published ground truth, an honest baseline, and
+out-of-time evaluation — no use case ships as a demo on a static CSV.
 
 ## Shipped since first draft
 
@@ -56,12 +55,21 @@ by controls, and its power and false-positive rate are all measured. Done
 carefully, with the group as a methodology-validation construct only. See
 `payequity.py` and `docs/use_cases/17_pay_equity.md`.
 
-## Still on the roadmap (new data surfaces required)
+**Geographic transfer matching** (use case 18). A geography layer (stores
+clustered by district, homes placed at each employee's commute distance) and a
+capacitated Hungarian assignment of far commuters to closer vacancies, with the
+retention payoff exact from the published commute coefficient — ~$71k/yr of free
+retention on the simulated chain, and the optimum beats greedy from the same
+vacancies. See `geo.py` and `docs/use_cases/18_geo_transfers.md`.
 
-**Geographic transfer matching.** Commute distance is a planted turnover
-driver; matching employees to closer stores when vacancies open is a
-bipartite assignment problem with a measurable retention payoff. Needs
-store geo-coordinates in the generator.
+## What's next
+
+Every use case from the original roadmap has been built. Further additions
+would need genuinely new data surfaces or modalities — richer scheduling
+constraints (skills, certifications, availability windows), a benefits/leave
+administration layer, or multi-channel demand beyond the order mix in use case
+16. Open an issue with the use case, the data surface it needs, and the
+ground-truth mechanism that would let it be validated.
 
 ## Explicitly out of scope
 

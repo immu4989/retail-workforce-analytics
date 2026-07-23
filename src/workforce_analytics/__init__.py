@@ -106,6 +106,18 @@ from .payequity import (
     audit_power_fpr,
     build_employee_frame,
 )
+from .geo import (
+    GeoGroundTruth,
+    assign_homes,
+    assign_store_coordinates,
+    compare_strategies,
+    greedy_transfers,
+    optimize_transfers,
+    store_vacancies,
+    transfer_options,
+    transfer_payoff,
+    workforce_snapshot,
+)
 
 __version__ = "0.1.0"
 
@@ -209,4 +221,14 @@ __all__ = [
     "audit_pay_gap",
     "audit_power_fpr",
     "build_employee_frame",
+    "GeoGroundTruth",
+    "assign_homes",
+    "assign_store_coordinates",
+    "compare_strategies",
+    "greedy_transfers",
+    "optimize_transfers",
+    "store_vacancies",
+    "transfer_options",
+    "transfer_payoff",
+    "workforce_snapshot",
 ]

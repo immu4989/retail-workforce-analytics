@@ -6,13 +6,13 @@
 <p align="center">
   <a href="https://github.com/immu4989/retail-workforce-analytics/actions/workflows/ci.yml"><img src="https://github.com/immu4989/retail-workforce-analytics/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <img src="https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-2a78d6" alt="Python 3.10-3.12">
-  <img src="https://img.shields.io/badge/tests-101%20passing-008300" alt="101 tests">
+  <img src="https://img.shields.io/badge/tests-107%20passing-008300" alt="107 tests">
   <img src="https://img.shields.io/badge/HR%20data-100%25%20synthetic-184f95" alt="100% synthetic data">
   <img src="https://img.shields.io/badge/license-MIT-52514e" alt="MIT license">
 </p>
 
 <p align="center">
-  <a href="#the-seventeen-use-cases">Use cases</a> ·
+  <a href="#the-eighteen-use-cases">Use cases</a> ·
   <a href="#see-it-work">Results</a> ·
   <a href="#what-it-is-worth-in-dollars">Dollars</a> ·
   <a href="#quickstart">Quickstart</a> ·
@@ -34,7 +34,7 @@ built on real HR data, and no static demo dataset, can offer.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/assets/stats-dark.svg">
-  <img alt="17 decision systems, 101 tests in CI, 9 one-command pipelines, 0 rows of real HR data" src="docs/assets/stats-light.svg" width="100%">
+  <img alt="18 decision systems, 107 tests in CI, 10 one-command pipelines, 0 rows of real HR data" src="docs/assets/stats-light.svg" width="100%">
 </picture>
 
 > [!TIP]
@@ -59,7 +59,7 @@ flowchart LR
     SIM -. "paired A/B reruns" .-> WAGE["wage-program<br/>experiments"]
 ```
 
-## The seventeen use cases
+## The eighteen use cases
 
 | # | | Use case | Writeup |
 |---|---|----------|---------|
@@ -80,13 +80,13 @@ flowchart LR
 | 15 | 🗣️ | Exit-interview NLP: themes tied to true drivers, recovered unsupervised | [docs](docs/use_cases/15_exit_nlp.md) |
 | 16 | 🍔 | Task-level labor standards from order mix (front counter / drive-thru / mobile / delivery) | [docs](docs/use_cases/16_task_standards.md) |
 | 17 | ⚖️ | Pay-equity audit, and validating the audit's power and false-positive rate | [docs](docs/use_cases/17_pay_equity.md) |
+| 18 | 🗺️ | Geographic transfer matching: move far commuters to closer vacancies (Hungarian) | [docs](docs/use_cases/18_geo_transfers.md) |
 
-Use cases 1-4 and 14 are the people stack, 5-9 and 12-13 and 16 the operations
-stack, 10-11 and 15 compensation and voice of the frontline, 17 governance — one
-runnable pipeline each (see [Quickstart](#quickstart)). What large operators run
-beyond these, and what
-each would need to be added with the same rigour, is in
-[docs/ROADMAP.md](docs/ROADMAP.md).
+Use cases 1-4 and 14 are the people stack, 5-9 and 12-13 and 16 and 18 the
+operations stack, 10-11 and 15 compensation and voice of the frontline, 17
+governance — one runnable pipeline each (see [Quickstart](#quickstart)). Every
+use case on the original roadmap has now been built; what a next round could add
+is in [docs/ROADMAP.md](docs/ROADMAP.md).
 
 ## See it work
 
@@ -244,6 +244,7 @@ python examples/run_onboarding.py      # 14: first-90-day washout model + new-hi
 python examples/run_exit_nlp.py        # 15: recover exit reasons, aligned to true drivers (~30 s)
 python examples/run_task_standards.py  # 16: task-time labor standards vs the flat 18/hr rate (~40 s)
 python examples/run_pay_equity.py      # 17: pay-gap audit + power/false-positive validation (~40 s)
+python examples/run_geo_transfers.py   # 18: match far commuters to closer vacancies (~30 s)
 ```
 
 Everything lands in `reports/` (CSV/JSON) and `docs/figures/` (PNG).
@@ -316,14 +317,15 @@ src/workforce_analytics/
     callcenter.py   synthetic transcripts with hidden topics, NMF topic model
     elasticity.py   service-loss mechanism: derive the cost of an understaffed hour
     exitnlp.py      exit-comment themes tied to hazard drivers, NMF recovery + alignment
+    geo.py          geographic transfer matching: far commuters to closer vacancies
     onboarding.py   first-90-day washout model, 30/60/90 milestones, new-hire watchlist
     payequity.py    residual pay-gap audit + power/false-positive validation
     punchclock.py   payroll-anomaly detection: time theft, ghost shifts, buddy punching
     realdata.py     HRIS-extract audit: contract validator + leakage linters
     tasks.py        task-level labor standards from order mix vs the flat rate
-examples/           nine scripts (people, operations, comp & voice, real-data audit,
-                    labor anomaly, onboarding, exit NLP, task standards, pay equity)
-tests/              101 tests: realism, leakage, calibration, SHAP additivity, accounting
+examples/           ten scripts (people, operations, comp & voice, real-data audit, labor
+                    anomaly, onboarding, exit NLP, task standards, pay equity, geo transfers)
+tests/              107 tests: realism, leakage, calibration, SHAP additivity, accounting
 docs/               per-use-case writeups, roadmap, guide to adapting real HRIS data
 ```
 </details>

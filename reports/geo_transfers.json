@@ -1,0 +1,22 @@
+{
+  "n_candidates": 420,
+  "optimal": {
+    "transfers": 291,
+    "exits_avoided": 14.26,
+    "commute_km_saved": 1101.3,
+    "dollars_saved": 71285.0
+  },
+  "greedy": {
+    "transfers": 262,
+    "exits_avoided": 13.45,
+    "commute_km_saved": 1066.3,
+    "dollars_saved": 67240.0
+  },
+  "no_transfers": {
+    "transfers": 0,
+    "exits_avoided": 0.0,
+    "commute_km_saved": 0.0,
+    "dollars_saved": 0.0
+  },
+  "optimal_vs_greedy_extra_exits_avoided": 0.81
+}
