@@ -59,7 +59,9 @@ rebuilding blind.
 
 Scoring both strategies against realised demand across all 139 stores and 12
 held-out weeks, at a $21 loaded wage and $35 per understaffed person-hour
-(lost transactions plus service decay — adjust both in the script):
+(lost transactions plus service decay — the $35 is no longer assumed, it is
+*derived* from a service-loss mechanism in [use case 12](12_staffing_elasticity.md),
+which lands at $34.71; adjust the economics there):
 
 | Strategy | Staffing cost per store-week |
 |----------|------------------------------|

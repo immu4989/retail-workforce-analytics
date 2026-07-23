@@ -31,6 +31,7 @@ from workforce_analytics import (
     build_snapshots,
     build_week_schedule,
     contagion_analysis,
+    derive_understaffing_cost,
     funnel_report,
     generate,
     req_timing,
@@ -39,6 +40,7 @@ from workforce_analytics import (
     schedule_stability,
     simulate_absences,
     simulate_funnel,
+    staffing_sales_elasticity,
     time_split,
 )
 
@@ -50,7 +52,9 @@ FIGURES = ROOT / "docs" / "figures"
 
 TRAIN_END, VAL_END, SCORE_MONTH = 36, 44, 48
 LOADED_WAGE = 21.0        # $/hour, fully loaded
-UNDERSTAFFED_COST = 35.0  # $/person-hour short: lost transactions + service decay
+# $/person-hour short. Historically assumed; use case 12 derives it from a
+# service-loss mechanism (set below from the traffic), which lands near $35.
+UNDERSTAFFED_COST = 35.0
 
 SURFACE = "#fcfcfb"
 INK, INK2, MUTED = "#0b0b0b", "#52514e", "#898781"
@@ -86,6 +90,19 @@ def main() -> None:
     stores = result.stores[result.stores["open_month"] == 0].reset_index(drop=True)
     traffic = TrafficSimulator(stores, TrafficConfig(n_weeks=104)).run()
     print(f"      {len(traffic):,} store-hours of traffic across {len(stores)} stores")
+
+    # Use case 12: derive the understaffing cost the scheduler uses, instead of
+    # assuming it. The service-loss mechanism (queue abandonment past a
+    # utilisation threshold, priced at contribution margin) lands near $35.
+    derived = derive_understaffing_cost(traffic, assumed=UNDERSTAFFED_COST)
+    elasticity = staffing_sales_elasticity(traffic, reference_short=1)
+    understaffed_cost = derived["derived_cost_first_head_short"]
+    (REPORTS / "staffing_elasticity.json").write_text(
+        json.dumps({**derived, **elasticity}, indent=2))
+    print(f"      derived understaffed cost ${understaffed_cost:.2f}/head-hour "
+          f"({derived['ratio_derived_to_assumed']:.0%} of the assumed "
+          f"${UNDERSTAFFED_COST:.0f}); sales elasticity "
+          f"{elasticity['sales_elasticity_wrt_labor']:.2f} when one head short")
 
     # ------------------------------------------------------------------
     print("2/6 demand forecast + schedule build...")

@@ -6,13 +6,13 @@
 <p align="center">
   <a href="https://github.com/immu4989/retail-workforce-analytics/actions/workflows/ci.yml"><img src="https://github.com/immu4989/retail-workforce-analytics/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <img src="https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-2a78d6" alt="Python 3.10-3.12">
-  <img src="https://img.shields.io/badge/tests-60%20passing-008300" alt="60 tests">
+  <img src="https://img.shields.io/badge/tests-69%20passing-008300" alt="69 tests">
   <img src="https://img.shields.io/badge/HR%20data-100%25%20synthetic-184f95" alt="100% synthetic data">
   <img src="https://img.shields.io/badge/license-MIT-52514e" alt="MIT license">
 </p>
 
 <p align="center">
-  <a href="#the-eleven-use-cases">Use cases</a> ·
+  <a href="#the-twelve-use-cases">Use cases</a> ·
   <a href="#see-it-work">Results</a> ·
   <a href="#what-it-is-worth-in-dollars">Dollars</a> ·
   <a href="#quickstart">Quickstart</a> ·
@@ -34,7 +34,7 @@ built on real HR data, and no static demo dataset, can offer.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/assets/stats-dark.svg">
-  <img alt="11 decision systems, 60 tests in CI, 4 one-command pipelines, 0 rows of real HR data" src="docs/assets/stats-light.svg" width="100%">
+  <img alt="12 decision systems, 69 tests in CI, 4 one-command pipelines, 0 rows of real HR data" src="docs/assets/stats-light.svg" width="100%">
 </picture>
 
 > [!TIP]
@@ -59,7 +59,7 @@ flowchart LR
     SIM -. "paired A/B reruns" .-> WAGE["wage-program<br/>experiments"]
 ```
 
-## The eleven use cases
+## The twelve use cases
 
 | # | | Use case | Writeup |
 |---|---|----------|---------|
@@ -74,8 +74,9 @@ flowchart LR
 | 9 | 🧪 | Turnover contagion, and why the naive estimate misleads | [docs](docs/use_cases/09_turnover_contagion.md) |
 | 10 | 💵 | Compensation: raises, floors and freezes priced by true experiments | [docs](docs/use_cases/10_compensation.md) |
 | 11 | 🎧 | Employee call-center topic mining (voice of the frontline) | [docs](docs/use_cases/11_call_center_topics.md) |
+| 12 | 📈 | Staffing-to-sales elasticity: derive the cost of an understaffed hour | [docs](docs/use_cases/12_staffing_elasticity.md) |
 
-Use cases 1-4 are the people stack, 5-9 the operations stack, 10-11
+Use cases 1-4 are the people stack, 5-9 and 12 the operations stack, 10-11
 compensation and voice of the frontline — one runnable pipeline each (see
 [Quickstart](#quickstart)). What large operators run beyond these, and what
 each would need to be added with the same rigour, is in
@@ -302,9 +303,10 @@ src/workforce_analytics/
     contagion.py    peer-exit exposure analysis, raw vs stratified
     compensation.py pay elasticity, wage-program experiments (raise/floor/freeze)
     callcenter.py   synthetic transcripts with hidden topics, NMF topic model
+    elasticity.py   service-loss mechanism: derive the cost of an understaffed hour
     realdata.py     HRIS-extract audit: contract validator + leakage linters
 examples/           four scripts (people, operations, comp & voice, real-data audit)
-tests/              60 tests: realism, leakage, calibration, SHAP additivity, accounting
+tests/              69 tests: realism, leakage, calibration, SHAP additivity, accounting
 docs/               per-use-case writeups, roadmap, guide to adapting real HRIS data
 ```
 </details>

@@ -61,6 +61,13 @@ from .realdata import (
     make_messy_extract,
     validate_person_months,
 )
+from .elasticity import (
+    ServiceConfig,
+    derive_understaffing_cost,
+    service_loss_curve,
+    service_outcome,
+    staffing_sales_elasticity,
+)
 
 __version__ = "0.1.0"
 
@@ -131,4 +138,9 @@ __all__ = [
     "audit_split",
     "make_messy_extract",
     "validate_person_months",
+    "ServiceConfig",
+    "derive_understaffing_cost",
+    "service_loss_curve",
+    "service_outcome",
+    "staffing_sales_elasticity",
 ]

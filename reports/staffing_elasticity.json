@@ -1,0 +1,13 @@
+{
+  "derived_cost_first_head_short": 34.71,
+  "avg_marginal_cost_3_heads_short": 63.06,
+  "loss_rate_at_required_staffing": 0.0,
+  "assumed_cost": 35.0,
+  "ratio_derived_to_assumed": 0.992,
+  "gross_margin_per_txn": 4.0,
+  "capacity_per_head": 22.0,
+  "reference_short_heads": 1,
+  "sales_elasticity_wrt_labor": 0.674,
+  "share_store_hours_on_margin": 0.8351,
+  "note": "elasticity of served transactions w.r.t. heads on floor, evaluated at a short-staffed operating point"
+}

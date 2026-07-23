@@ -1,20 +1,23 @@
 # Roadmap: use cases the industry runs that this repo doesn't cover yet
 
-The nine implemented use cases cover the systems that plan, staff and retain
-an hourly workforce. This page lists what large operators (Starbucks,
+The twelve implemented use cases cover the systems that plan, staff and
+retain an hourly workforce. This page lists what large operators (Starbucks,
 McDonald's, Chipotle, Taco Bell/Yum and their WFM vendors) run beyond them,
 and what each would need before it belongs here. The bar for inclusion is
 the same one every existing module met: a simulator with published ground
 truth, an honest baseline, and out-of-time evaluation — no use case ships as
 a demo on a static CSV.
 
-## Near-term (the current simulator mostly supports them)
+## Shipped since first draft
 
-**Staffing-to-sales elasticity.** Quantify lost sales per understaffed hour
-by joining use case 5's traffic to staffing levels. The generator already
-couples understaffing to schedules and attrition; adding a service-loss
-term (queue abandonment above a transactions-per-labor-hour threshold)
-would let the $35/hour understaffing cost be *derived* instead of assumed.
+**Staffing-to-sales elasticity** (use case 12). Quantifies lost sales per
+understaffed hour by adding a service-loss term (queue abandonment above a
+utilisation threshold, priced at contribution margin) on top of use case 5's
+traffic, letting the $35/hour understaffing cost be *derived* (it lands at
+$34.71) instead of assumed. See `elasticity.py` and
+`docs/use_cases/12_staffing_elasticity.md`.
+
+## Near-term (the current simulator mostly supports them)
 
 **Overtime and labor-cost anomaly detection.** Punch-clock data =
 scheduled hours + noise + injected anomalies (systematic OT inflation,
