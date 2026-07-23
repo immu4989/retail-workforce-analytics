@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "workforce-analytics"
-version = "0.1.0"
+version = "1.0.0"
 description = "Turnover prediction, headcount forecasting, and attrition-driver analysis for hourly retail workforces"
 readme = "README.md"
 requires-python = ">=3.10"

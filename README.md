@@ -137,6 +137,32 @@ the stores with chaotic schedules (r = 0.71):
   </tr>
 </table>
 
+**The systems added since the first release (12–18), every one oracle-checked.**
+An assumed cost derived from a mechanism, planted anomalies caught, an
+onboarding gap that is mostly confounding, exit themes that line up with the
+drivers that caused the exits, a labor standard recovered from data, a
+pay-equity audit whose raw number misleads until you control for tenure, and
+free retention from matching commuters to closer stores:
+
+<table>
+  <tr>
+    <td width="50%"><img src="docs/figures/service_loss_curve.png" alt="Use case 12: understaffing cost derived vs assumed"></td>
+    <td width="50%"><img src="docs/figures/anomaly_detection.png" alt="Use case 13: payroll-anomaly detection precision/recall"></td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="docs/figures/onboarding_milestones.png" alt="Use case 14: 90-day retention by training completion"></td>
+    <td width="50%"><img src="docs/figures/exit_theme_alignment.png" alt="Use case 15: exit themes aligned to true drivers"></td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="docs/figures/task_time_recovery.png" alt="Use case 16: per-channel labor standards recovered"></td>
+    <td width="50%"><img src="docs/figures/pay_equity_confounding.png" alt="Use case 17: controls recover the true pay gap"></td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="docs/figures/geo_transfer_map.png" alt="Use case 18: optimal transfers to closer stores"></td>
+    <td width="50%"></td>
+  </tr>
+</table>
+
 <details>
 <summary><b>📊 Full figure gallery</b> (9 more: demand forecasts, hiring plans, survival curves, funnel, drivers...)</summary>
 <br>
@@ -323,8 +349,9 @@ src/workforce_analytics/
     punchclock.py   payroll-anomaly detection: time theft, ghost shifts, buddy punching
     realdata.py     HRIS-extract audit: contract validator + leakage linters
     tasks.py        task-level labor standards from order mix vs the flat rate
-examples/           ten scripts (people, operations, comp & voice, real-data audit, labor
-                    anomaly, onboarding, exit NLP, task standards, pay equity, geo transfers)
+examples/           ten use-case pipelines (people, operations, comp & voice, real-data
+                    audit, labor anomaly, onboarding, exit NLP, task standards, pay
+                    equity, geo transfers) + make_figures.py for the README charts
 tests/              107 tests: realism, leakage, calibration, SHAP additivity, accounting
 docs/               per-use-case writeups, roadmap, guide to adapting real HRIS data
 ```
